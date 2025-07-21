@@ -58,7 +58,12 @@ namespace Gym_Management_System
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            this.Hide(); 
+            using (Register regForm = new Register())
+            {
+                regForm.ShowDialog(); 
+            }
+            this.Show(); 
         }
     }
 }
