@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gym_Management_System.services
 {
-    internal class dbConnection
+    internal class DbConnection
     {
     }
 }
