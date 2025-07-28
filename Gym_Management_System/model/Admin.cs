@@ -8,5 +8,7 @@ namespace Gym_Management_System.model
 {
     internal class Admin
     {
+
+
     }
 }
