@@ -28,6 +28,8 @@ namespace Gym_Management_System.model
             this.button5 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -97,9 +99,19 @@ namespace Gym_Management_System.model
             this.label1.Text = "Welcome";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(98, 30);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(99, 54);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // AdminDashboard
             // 
             this.ClientSize = new System.Drawing.Size(1276, 508);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button5);
@@ -108,6 +120,7 @@ namespace Gym_Management_System.model
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "AdminDashboard";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -144,7 +157,16 @@ namespace Gym_Management_System.model
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
+            //display admin name
+            if (lblAdminName != null)
+            {
+                e.Graphics.DrawString(lblAdminName.ToString(), new Font("Arial", 16), Brushes.Black, new PointF(10, 10));
+            }
+        }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+             pictureBox1.Image = Image.FromFile("path_to_image.jpg"); // Update with actual image path
         }
     }
 

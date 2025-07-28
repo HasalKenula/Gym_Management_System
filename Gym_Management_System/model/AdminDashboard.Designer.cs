@@ -51,5 +51,6 @@ namespace Gym_Management_System.model
         private Button button5;
         private Panel panel1;
         private Label label1;
+        private PictureBox pictureBox1;
     }
 }
