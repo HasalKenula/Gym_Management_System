@@ -1,6 +1,6 @@
 ﻿namespace Gym_Management_System.pages.user
 {
-    partial class Profile
+    partial class UserSide
     {
         /// <summary>
         /// Required designer variable.
@@ -28,33 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.splitpnlUser = new System.Windows.Forms.SplitContainer();
+            ((System.ComponentModel.ISupportInitialize)(this.splitpnlUser)).BeginInit();
+            this.splitpnlUser.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // splitpnlUser
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(386, 190);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Profile";
+            this.splitpnlUser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitpnlUser.Location = new System.Drawing.Point(0, 0);
+            this.splitpnlUser.Name = "splitpnlUser";
+            this.splitpnlUser.Size = new System.Drawing.Size(1312, 742);
+            this.splitpnlUser.SplitterDistance = 301;
+            this.splitpnlUser.TabIndex = 0;
             // 
-            // Profile
+            // UserSide
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
-            this.Name = "Profile";
-            this.Text = "private ";
+            this.ClientSize = new System.Drawing.Size(1312, 742);
+            this.Controls.Add(this.splitpnlUser);
+            this.Name = "UserSide";
+            this.Text = "UserSide";
+            ((System.ComponentModel.ISupportInitialize)(this.splitpnlUser)).EndInit();
+            this.splitpnlUser.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.SplitContainer splitpnlUser;
     }
 }

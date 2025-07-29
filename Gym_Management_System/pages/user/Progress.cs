@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Gym_Management_System.pages.user
 {
-    public partial class MyStats : Form
+    public partial class Progress : Form
     {
-        public MyStats()
+        public Progress()
         {
             InitializeComponent();
         }
