@@ -446,5 +446,10 @@ namespace Gym_Management_System.pages.admin
                 }
             }
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
