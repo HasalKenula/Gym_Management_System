@@ -446,6 +446,5 @@ namespace Gym_Management_System.pages.admin
                 }
             }
         }
-    
     }
 }
