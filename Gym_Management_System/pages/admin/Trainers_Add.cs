@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Gym_Management_System.services;
 
 namespace Gym_Management_System.pages.admin
 {
@@ -24,23 +25,23 @@ namespace Gym_Management_System.pages.admin
 
         private void SetupTableHeaders()
         {
-            // Example columns you want as headers
+            
             string[] columnNames = { "ID", "Username", "Full Name", "Email", "Contact", "Specialization", "Joining Date" };
 
             tableLayoutPanel1.ColumnCount = columnNames.Length;
-            tableLayoutPanel1.RowCount = 1; // Only header row for now
+            tableLayoutPanel1.RowCount = 1; 
 
-            // Clear existing styles & controls
+            
             tableLayoutPanel1.ColumnStyles.Clear();
             tableLayoutPanel1.Controls.Clear();
 
-            // Add equal width columns (optional)
+            
             for (int i = 0; i < columnNames.Length; i++)
             {
                 tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f / columnNames.Length));
             }
 
-            // Add header labels in row 0
+           
             for (int col = 0; col < columnNames.Length; col++)
             {
                 Label lbl = new Label();
@@ -50,13 +51,13 @@ namespace Gym_Management_System.pages.admin
                 lbl.TextAlign = ContentAlignment.MiddleCenter;
                 lbl.BackColor = Color.LightGray;
 
-                tableLayoutPanel1.Controls.Add(lbl, col, 0); // col, row
+                tableLayoutPanel1.Controls.Add(lbl, col, 0); 
             }
         }
 
         private void CreateTrainerTableIfNotExists()
         {
-            string connectionString = @"Data Source=DESKTOP-UTSQ2RQ\SQLEXPRESS;Initial Catalog=student;Integrated Security=True";
+            DatabaseConnection.Instance.GetConnection();
 
             string createTableQuery = @"
                             IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='trainers' AND xtype='U')
@@ -73,11 +74,11 @@ namespace Gym_Management_System.pages.admin
                                 )
                             END";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            SqlConnection conn = DatabaseConnection.Instance.GetConnection();
             {
                 try
                 {
-                    conn.Open();
+                   
                     using (SqlCommand cmd = new SqlCommand(createTableQuery, conn))
                     {
                         cmd.ExecuteNonQuery();
@@ -97,14 +98,13 @@ namespace Gym_Management_System.pages.admin
 
         private void submit_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Data Source=DESKTOP-UTSQ2RQ\SQLEXPRESS;Initial Catalog=student;Integrated Security=True";
 
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            SqlConnection conn = DatabaseConnection.Instance.GetConnection();
             {
                 try
                 {
-                    conn.Open();
+                   
 
                     byte[] photoBytes = null;
                     if (pictureUploadBox.Image != null)
@@ -160,49 +160,47 @@ namespace Gym_Management_System.pages.admin
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                textImageUpload.Text = ofd.FileName; // show path (optional)
-                pictureUploadBox.Image = Image.FromFile(ofd.FileName); // show image
+                textImageUpload.Text = ofd.FileName; 
+                pictureUploadBox.Image = Image.FromFile(ofd.FileName); 
             }
         }
 
         private void LoadTrainerData()
         {
-            string connectionString = @"Data Source=DESKTOP-UTSQ2RQ\SQLEXPRESS;Initial Catalog=student;Integrated Security=True";
+             
 
             string query = "SELECT id, username, fullname, email, contact, specialization, joining_date FROM trainers";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            SqlConnection conn = DatabaseConnection.Instance.GetConnection();
             {
                 try
                 {
-                    conn.Open();
+                    
 
                     SqlCommand cmd = new SqlCommand(query, conn);
                     SqlDataReader reader = cmd.ExecuteReader();
 
-                    // Clear previous data rows but keep headers (row 0)
-                    // We set RowCount = 1 so only header row remains
+                    
                     tableLayoutPanel1.RowCount = 1;
 
-                    // Optional: Clear existing controls except headers
-                    // Actually, keep header labels in row 0 only
+                    
                     for (int i = tableLayoutPanel1.Controls.Count - 1; i >= 0; i--)
                     {
                         Control c = tableLayoutPanel1.Controls[i];
-                        // Remove controls which are NOT in header row (row 0)
+                        
                         if (tableLayoutPanel1.GetRow(c) != 0)
                             tableLayoutPanel1.Controls.Remove(c);
                     }
 
-                    int row = 1; // Start adding from row 1, below headers
+                    int row = 1; 
 
                     while (reader.Read())
                     {
-                        // Increase RowCount by 1 to add new row
+                        
                         tableLayoutPanel1.RowCount = row + 1;
                         tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.AutoSize));
 
-                        // For each column, add Label with DB value
+                        
                         for (int col = 0; col < tableLayoutPanel1.ColumnCount; col++)
                         {
                             Label lbl = new Label();
@@ -225,7 +223,7 @@ namespace Gym_Management_System.pages.admin
                             }
                             lbl.Tag = row;
 
-                            // Add click event to all labels in the row
+                            
                             lbl.Click += RowLabel_Click;
 
                             tableLayoutPanel1.Controls.Add(lbl, col, row);
@@ -245,13 +243,13 @@ namespace Gym_Management_System.pages.admin
 
         private void Update_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Data Source=DESKTOP-UTSQ2RQ\SQLEXPRESS;Initial Catalog=student;Integrated Security=True";
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            
+            SqlConnection conn = DatabaseConnection.Instance.GetConnection();
+            
             {
                 try
                 {
-                    conn.Open();
+                   
 
                     byte[] photoBytes = null;
                     if (pictureUploadBox.Image != null)
@@ -291,7 +289,7 @@ namespace Gym_Management_System.pages.admin
                         if (result > 0)
                         {
                             MessageBox.Show("Trainer updated successfully!");
-                            LoadTrainerData(); // Refresh data shown in TableLayoutPanel
+                            LoadTrainerData(); 
                         }
                         else
                         {
@@ -315,7 +313,7 @@ namespace Gym_Management_System.pages.admin
 
             int row = (int)clickedLabel.Tag;
 
-            // Retrieve values from that row (all labels in the row)
+            
             string id = "";
             string username = "";
             string fullname = "";
@@ -345,7 +343,7 @@ namespace Gym_Management_System.pages.admin
                 }
             }
 
-            // Set values to input controls
+            
             textId.Text = id;
             textUsername.Text = username;
             textFullname.Text = fullname;
@@ -354,13 +352,12 @@ namespace Gym_Management_System.pages.admin
             combospecialization.Text = specialization;
             textDate.Text = joiningDate;
 
-            // 🔽 Load image from database based on ID
+            
             try
             {
-                string connectionString = @"Data Source=DESKTOP-UTSQ2RQ\SQLEXPRESS;Initial Catalog=student;Integrated Security=True";
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                SqlConnection conn = DatabaseConnection.Instance.GetConnection();
                 {
-                    conn.Open();
+                    
                     string query = "SELECT photo FROM trainers WHERE id = @id";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -408,13 +405,11 @@ namespace Gym_Management_System.pages.admin
             if (result != DialogResult.Yes)
                 return;
 
-            string connectionString = @"Data Source=DESKTOP-UTSQ2RQ\SQLEXPRESS;Initial Catalog=student;Integrated Security=True";
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            SqlConnection conn = DatabaseConnection.Instance.GetConnection();
             {
                 try
                 {
-                    conn.Open();
+                    
                     string query = "DELETE FROM trainers WHERE id = @id";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
