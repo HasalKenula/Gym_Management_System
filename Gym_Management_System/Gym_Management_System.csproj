@@ -138,6 +138,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="pages\user\UserSide.resx">
       <DependentUpon>UserSide.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="services\DatabaseConnection.cs" />
     <EmbeddedResource Include="pages\admin\Players_Add.resx">
       <DependentUpon>Players_Add.cs</DependentUpon>
