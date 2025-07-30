@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Gym_Management_System.pages.user;
+using Gym_Management_System.pages.admin;
 
 namespace Gym_Management_System
 {
@@ -18,7 +19,7 @@ namespace Gym_Management_System
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new UserSide());
-            
+//             Application.Run(new Trainers_Add());
         }
     }
 }
