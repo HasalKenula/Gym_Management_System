@@ -8,17 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Gym_Management_System.pages.user
+namespace Gym_Management_System.pages.user.dashboard.components
 {
-    public partial class UserDashboard : Form
+    public partial class MembershipCard : Form
     {
-        public UserDashboard()
+        public MembershipCard()
         {
             InitializeComponent();
         }
 
-        public Panel getUserDashboard() {
-            return pnlUserDashboard;
+        public Panel getMembershipCrd()
+        {
+            return pnlMembershipCrd;
         }
     }
 }

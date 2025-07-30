@@ -37,20 +37,27 @@
             // 
             // pnlUserMainMenu
             // 
+            this.pnlUserMainMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlUserMainMenu.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.pnlUserMainMenu.Controls.Add(this.btnUserDashboard);
             this.pnlUserMainMenu.Controls.Add(this.btnUserProgress);
             this.pnlUserMainMenu.Controls.Add(this.btnUserProfile);
             this.pnlUserMainMenu.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.pnlUserMainMenu.Location = new System.Drawing.Point(-3, -1);
             this.pnlUserMainMenu.Name = "pnlUserMainMenu";
-            this.pnlUserMainMenu.Size = new System.Drawing.Size(295, 461);
+            this.pnlUserMainMenu.Padding = new System.Windows.Forms.Padding(40, 100, 20, 100);
+            this.pnlUserMainMenu.Size = new System.Drawing.Size(290, 461);
             this.pnlUserMainMenu.TabIndex = 1;
+            this.pnlUserMainMenu.WrapContents = false;
             // 
             // btnUserDashboard
             // 
-            this.btnUserDashboard.Location = new System.Drawing.Point(3, 3);
+            this.btnUserDashboard.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUserDashboard.Location = new System.Drawing.Point(43, 103);
+            this.btnUserDashboard.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
             this.btnUserDashboard.Name = "btnUserDashboard";
-            this.btnUserDashboard.Size = new System.Drawing.Size(96, 23);
+            this.btnUserDashboard.Size = new System.Drawing.Size(350, 40);
             this.btnUserDashboard.TabIndex = 0;
             this.btnUserDashboard.Text = "Dashboard";
             this.btnUserDashboard.UseVisualStyleBackColor = true;
@@ -58,9 +65,11 @@
             // 
             // btnUserProgress
             // 
-            this.btnUserProgress.Location = new System.Drawing.Point(3, 32);
+            this.btnUserProgress.Font = new System.Drawing.Font("Poppins", 10.2F);
+            this.btnUserProgress.Location = new System.Drawing.Point(43, 171);
+            this.btnUserProgress.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
             this.btnUserProgress.Name = "btnUserProgress";
-            this.btnUserProgress.Size = new System.Drawing.Size(75, 23);
+            this.btnUserProgress.Size = new System.Drawing.Size(350, 40);
             this.btnUserProgress.TabIndex = 1;
             this.btnUserProgress.Text = "Progress";
             this.btnUserProgress.UseVisualStyleBackColor = true;
@@ -68,9 +77,11 @@
             // 
             // btnUserProfile
             // 
-            this.btnUserProfile.Location = new System.Drawing.Point(3, 61);
+            this.btnUserProfile.Font = new System.Drawing.Font("Poppins", 10.2F);
+            this.btnUserProfile.Location = new System.Drawing.Point(43, 239);
+            this.btnUserProfile.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
             this.btnUserProfile.Name = "btnUserProfile";
-            this.btnUserProfile.Size = new System.Drawing.Size(75, 23);
+            this.btnUserProfile.Size = new System.Drawing.Size(350, 40);
             this.btnUserProfile.TabIndex = 2;
             this.btnUserProfile.Text = "Profile";
             this.btnUserProfile.UseVisualStyleBackColor = true;
