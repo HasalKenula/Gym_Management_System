@@ -16,5 +16,9 @@ namespace Gym_Management_System.pages.user
         {
             InitializeComponent();
         }
+
+        public Panel getUserDashboard() {
+            return pnlUserDashboard;
+        }
     }
 }
