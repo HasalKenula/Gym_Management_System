@@ -45,11 +45,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureUploadBox = new System.Windows.Forms.PictureBox();
-            this.buttonBrowse_Click = new System.Windows.Forms.Button();
             this.submit = new System.Windows.Forms.Button();
             this.Update = new System.Windows.Forms.Button();
             this.Delete = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonBrowse_Click = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUploadBox)).BeginInit();
             this.SuspendLayout();
@@ -57,11 +57,11 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.panel1.Controls.Add(this.buttonBrowse_Click);
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Controls.Add(this.Delete);
             this.panel1.Controls.Add(this.Update);
             this.panel1.Controls.Add(this.submit);
-            this.panel1.Controls.Add(this.buttonBrowse_Click);
             this.panel1.Controls.Add(this.pictureUploadBox);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
@@ -240,21 +240,9 @@
             this.pictureUploadBox.Location = new System.Drawing.Point(1182, 245);
             this.pictureUploadBox.Name = "pictureUploadBox";
             this.pictureUploadBox.Size = new System.Drawing.Size(274, 183);
-            this.pictureUploadBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureUploadBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureUploadBox.TabIndex = 25;
             this.pictureUploadBox.TabStop = false;
-            // 
-            // buttonBrowse_Click
-            // 
-            this.buttonBrowse_Click.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.buttonBrowse_Click.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBrowse_Click.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.buttonBrowse_Click.Location = new System.Drawing.Point(943, 316);
-            this.buttonBrowse_Click.Name = "buttonBrowse_Click";
-            this.buttonBrowse_Click.Size = new System.Drawing.Size(154, 40);
-            this.buttonBrowse_Click.TabIndex = 26;
-            this.buttonBrowse_Click.Text = "Browse";
-            this.buttonBrowse_Click.UseVisualStyleBackColor = false;
             // 
             // submit
             // 
@@ -267,6 +255,7 @@
             this.submit.TabIndex = 27;
             this.submit.Text = "ADD";
             this.submit.UseVisualStyleBackColor = false;
+            this.submit.Click += new System.EventHandler(this.submit_Click);
             // 
             // Update
             // 
@@ -279,6 +268,7 @@
             this.Update.TabIndex = 28;
             this.Update.Text = "UPDATE";
             this.Update.UseVisualStyleBackColor = false;
+            this.Update.Click += new System.EventHandler(this.Update_Click);
             // 
             // Delete
             // 
@@ -291,6 +281,7 @@
             this.Delete.TabIndex = 29;
             this.Delete.Text = "DELETE";
             this.Delete.UseVisualStyleBackColor = false;
+            this.Delete.Click += new System.EventHandler(this.Delete_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -307,6 +298,19 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1458, 252);
             this.tableLayoutPanel1.TabIndex = 30;
             // 
+            // buttonBrowse_Click
+            // 
+            this.buttonBrowse_Click.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.buttonBrowse_Click.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBrowse_Click.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.buttonBrowse_Click.Location = new System.Drawing.Point(916, 262);
+            this.buttonBrowse_Click.Name = "buttonBrowse_Click";
+            this.buttonBrowse_Click.Size = new System.Drawing.Size(154, 40);
+            this.buttonBrowse_Click.TabIndex = 31;
+            this.buttonBrowse_Click.Text = "Browse";
+            this.buttonBrowse_Click.UseVisualStyleBackColor = false;
+            this.buttonBrowse_Click.Click += new System.EventHandler(this.buttonBrowse_Click_Click);
+            // 
             // Players_Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -314,6 +318,7 @@
             this.ClientSize = new System.Drawing.Size(1482, 873);
             this.Controls.Add(this.panel1);
             this.Name = "Players_Add";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Players_Add";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -341,10 +346,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureUploadBox;
-        private System.Windows.Forms.Button buttonBrowse_Click;
         private System.Windows.Forms.Button submit;
         private System.Windows.Forms.Button Update;
         private System.Windows.Forms.Button Delete;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button buttonBrowse_Click;
     }
 }
