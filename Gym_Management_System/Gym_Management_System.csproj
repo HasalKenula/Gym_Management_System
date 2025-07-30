@@ -67,7 +67,7 @@
     <Compile Include="pages\admin\Trainers_Add.Designer.cs">
       <DependentUpon>Trainers_Add.cs</DependentUpon>
     </Compile>
-    <Compile Include="pages\login\login.cs">
+    <Compile Include="pages\login\Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="pages\login\Login.Designer.cs">
@@ -118,6 +118,18 @@
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
     <Compile Include="services\DbConnection.cs" />
+    <Compile Include="services\DatabaseConnection.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="pages\login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -139,39 +151,26 @@
     <EmbeddedResource Include="pages\user\UserSide.resx">
       <DependentUpon>UserSide.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="services\DatabaseConnection.cs" />
     <EmbeddedResource Include="pages\admin\Players_Add.resx">
       <DependentUpon>Players_Add.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pages\admin\Trainers_Add.resx">
       <DependentUpon>Trainers_Add.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="pages\login\login.resx">
-      <DependentUpon>login.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="pages\login\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
