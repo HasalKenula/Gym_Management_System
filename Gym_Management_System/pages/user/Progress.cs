@@ -10,11 +10,15 @@ using System.Windows.Forms;
 
 namespace Gym_Management_System.pages.user
 {
-    public partial class UserDashboard : Form
+    public partial class Progress : Form
     {
-        public UserDashboard()
+        public Progress()
         {
             InitializeComponent();
+        }
+
+        public Panel getUserProgress() {
+            return pnlUserProgress;
         }
     }
 }

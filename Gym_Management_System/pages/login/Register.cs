@@ -51,7 +51,7 @@ namespace Gym_Management_System
 
         private void button2_Click(object sender, EventArgs e)
         {
-            login login = new login();  
+            Login login = new Login();  
             login.Show();                       
             this.Close();
         }
