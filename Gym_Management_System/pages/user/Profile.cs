@@ -16,5 +16,10 @@ namespace Gym_Management_System.pages.user
         {
             InitializeComponent();
         }
+
+        public Panel getUserProfile()
+        {
+            return pnlUserProfile;
+        }
     }
 }

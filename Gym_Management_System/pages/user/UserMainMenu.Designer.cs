@@ -50,10 +50,11 @@
             // 
             this.btnUserDashboard.Location = new System.Drawing.Point(3, 3);
             this.btnUserDashboard.Name = "btnUserDashboard";
-            this.btnUserDashboard.Size = new System.Drawing.Size(75, 23);
+            this.btnUserDashboard.Size = new System.Drawing.Size(96, 23);
             this.btnUserDashboard.TabIndex = 0;
             this.btnUserDashboard.Text = "Dashboard";
             this.btnUserDashboard.UseVisualStyleBackColor = true;
+            this.btnUserDashboard.Click += new System.EventHandler(this.btnUserDashboard_Click);
             // 
             // btnUserProgress
             // 
@@ -63,6 +64,7 @@
             this.btnUserProgress.TabIndex = 1;
             this.btnUserProgress.Text = "Progress";
             this.btnUserProgress.UseVisualStyleBackColor = true;
+            this.btnUserProgress.Click += new System.EventHandler(this.btnUserProgress_Click);
             // 
             // btnUserProfile
             // 
@@ -72,6 +74,7 @@
             this.btnUserProfile.TabIndex = 2;
             this.btnUserProfile.Text = "Profile";
             this.btnUserProfile.UseVisualStyleBackColor = true;
+            this.btnUserProfile.Click += new System.EventHandler(this.btnUserProfile_Click);
             // 
             // UserMainMenu
             // 

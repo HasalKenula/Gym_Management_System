@@ -31,12 +31,14 @@
             this.lblGreeting = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pnlUserDashboard = new System.Windows.Forms.Panel();
+            this.pnlUserDashboard.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblGreeting
             // 
             this.lblGreeting.AutoSize = true;
-            this.lblGreeting.Location = new System.Drawing.Point(88, 49);
+            this.lblGreeting.Location = new System.Drawing.Point(13, 35);
             this.lblGreeting.Name = "lblGreeting";
             this.lblGreeting.Size = new System.Drawing.Size(98, 16);
             this.lblGreeting.TabIndex = 0;
@@ -45,7 +47,7 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(192, 49);
+            this.lblUsername.Location = new System.Drawing.Point(117, 35);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(32, 16);
             this.lblUsername.TabIndex = 1;
@@ -54,24 +56,33 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(394, 301);
+            this.label1.Location = new System.Drawing.Point(264, 123);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 16);
             this.label1.TabIndex = 2;
             this.label1.Text = "Dashboard";
+            // 
+            // pnlUserDashboard
+            // 
+            this.pnlUserDashboard.Controls.Add(this.lblUsername);
+            this.pnlUserDashboard.Controls.Add(this.label1);
+            this.pnlUserDashboard.Controls.Add(this.lblGreeting);
+            this.pnlUserDashboard.Location = new System.Drawing.Point(-3, -1);
+            this.pnlUserDashboard.Name = "pnlUserDashboard";
+            this.pnlUserDashboard.Size = new System.Drawing.Size(1200, 449);
+            this.pnlUserDashboard.TabIndex = 3;
             // 
             // UserDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1199, 628);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblUsername);
-            this.Controls.Add(this.lblGreeting);
+            this.Controls.Add(this.pnlUserDashboard);
             this.Name = "UserDashboard";
             this.Text = "UserDashboard";
+            this.pnlUserDashboard.ResumeLayout(false);
+            this.pnlUserDashboard.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -80,5 +91,6 @@
         private System.Windows.Forms.Label lblGreeting;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel pnlUserDashboard;
     }
 }
