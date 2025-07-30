@@ -30,47 +30,54 @@
         {
             this.lblGreeting = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.pnlUserDashboard = new System.Windows.Forms.Panel();
+            this.tbleLayoutUserDashboard = new System.Windows.Forms.TableLayoutPanel();
             this.pnlUserDashboard.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblGreeting
             // 
             this.lblGreeting.AutoSize = true;
-            this.lblGreeting.Location = new System.Drawing.Point(13, 35);
+            this.lblGreeting.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGreeting.Location = new System.Drawing.Point(59, 35);
             this.lblGreeting.Name = "lblGreeting";
-            this.lblGreeting.Size = new System.Drawing.Size(98, 16);
+            this.lblGreeting.Size = new System.Drawing.Size(248, 36);
             this.lblGreeting.TabIndex = 0;
             this.lblGreeting.Text = "Good Morning ,";
             // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(117, 35);
+            this.lblUsername.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Location = new System.Drawing.Point(313, 35);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(32, 16);
+            this.lblUsername.Size = new System.Drawing.Size(83, 36);
             this.lblUsername.TabIndex = 1;
             this.lblUsername.Text = "Isira";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(264, 123);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 16);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Dashboard";
-            // 
             // pnlUserDashboard
             // 
+            this.pnlUserDashboard.Controls.Add(this.tbleLayoutUserDashboard);
             this.pnlUserDashboard.Controls.Add(this.lblUsername);
-            this.pnlUserDashboard.Controls.Add(this.label1);
             this.pnlUserDashboard.Controls.Add(this.lblGreeting);
             this.pnlUserDashboard.Location = new System.Drawing.Point(-3, -1);
             this.pnlUserDashboard.Name = "pnlUserDashboard";
-            this.pnlUserDashboard.Size = new System.Drawing.Size(1200, 449);
+            this.pnlUserDashboard.Size = new System.Drawing.Size(1200, 627);
             this.pnlUserDashboard.TabIndex = 3;
+            // 
+            // tbleLayoutUserDashboard
+            // 
+            this.tbleLayoutUserDashboard.ColumnCount = 3;
+            this.tbleLayoutUserDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.0493F));
+            this.tbleLayoutUserDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.9507F));
+            this.tbleLayoutUserDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 225F));
+            this.tbleLayoutUserDashboard.Location = new System.Drawing.Point(65, 118);
+            this.tbleLayoutUserDashboard.Name = "tbleLayoutUserDashboard";
+            this.tbleLayoutUserDashboard.RowCount = 2;
+            this.tbleLayoutUserDashboard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.8961F));
+            this.tbleLayoutUserDashboard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.1039F));
+            this.tbleLayoutUserDashboard.Size = new System.Drawing.Size(1021, 462);
+            this.tbleLayoutUserDashboard.TabIndex = 2;
             // 
             // UserDashboard
             // 
@@ -90,7 +97,7 @@
 
         private System.Windows.Forms.Label lblGreeting;
         private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlUserDashboard;
+        private System.Windows.Forms.TableLayoutPanel tbleLayoutUserDashboard;
     }
 }

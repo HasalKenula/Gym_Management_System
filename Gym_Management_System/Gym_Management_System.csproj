@@ -61,6 +61,12 @@
     <Compile Include="pages\login\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="pages\user\dashboard\components\MembershipCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\user\dashboard\components\MembershipCard.Designer.cs">
+      <DependentUpon>MembershipCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="pages\user\Progress.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,10 +79,10 @@
     <Compile Include="pages\user\Profile.Designer.cs">
       <DependentUpon>Profile.cs</DependentUpon>
     </Compile>
-    <Compile Include="pages\user\UserDashboard.cs">
+    <Compile Include="pages\user\dashboard\UserDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pages\user\UserDashboard.Designer.cs">
+    <Compile Include="pages\user\dashboard\UserDashboard.Designer.cs">
       <DependentUpon>UserDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="pages\user\UserMainMenu.cs">
@@ -103,13 +109,16 @@
     <EmbeddedResource Include="pages\login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="pages\user\dashboard\components\MembershipCard.resx">
+      <DependentUpon>MembershipCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="pages\user\Profile.resx">
       <DependentUpon>Profile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pages\user\Progress.resx">
       <DependentUpon>Progress.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="pages\user\UserDashboard.resx">
+    <EmbeddedResource Include="pages\user\dashboard\UserDashboard.resx">
       <DependentUpon>UserDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pages\user\UserMainMenu.resx">

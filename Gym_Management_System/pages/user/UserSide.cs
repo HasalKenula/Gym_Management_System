@@ -15,6 +15,7 @@ namespace Gym_Management_System.pages.user
         public UserSide()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
             UserMainMenu userMainMenu = new UserMainMenu(this);
             UserDashboard userDashboard = new UserDashboard();
             Panel embedDashboard = userDashboard.getUserDashboard();
