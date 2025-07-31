@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlTrainerAdd = new System.Windows.Forms.Panel();
             this.Delete = new System.Windows.Forms.Button();
             this.Update = new System.Windows.Forms.Button();
             this.submit = new System.Windows.Forms.Button();
@@ -52,41 +52,41 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.pnlTrainerAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUploadBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlTrainerAdd
             // 
-            this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
-            this.panel1.Controls.Add(this.Delete);
-            this.panel1.Controls.Add(this.Update);
-            this.panel1.Controls.Add(this.submit);
-            this.panel1.Controls.Add(this.textImageUpload);
-            this.panel1.Controls.Add(this.buttonBrowse_Click);
-            this.panel1.Controls.Add(this.combospecialization);
-            this.panel1.Controls.Add(this.pictureUploadBox);
-            this.panel1.Controls.Add(this.textDate);
-            this.panel1.Controls.Add(this.textContact);
-            this.panel1.Controls.Add(this.textEmail);
-            this.panel1.Controls.Add(this.textFullname);
-            this.panel1.Controls.Add(this.textUsername);
-            this.panel1.Controls.Add(this.textId);
-            this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1482, 873);
-            this.panel1.TabIndex = 0;
+            this.pnlTrainerAdd.BackColor = System.Drawing.Color.MidnightBlue;
+            this.pnlTrainerAdd.Controls.Add(this.Delete);
+            this.pnlTrainerAdd.Controls.Add(this.Update);
+            this.pnlTrainerAdd.Controls.Add(this.submit);
+            this.pnlTrainerAdd.Controls.Add(this.textImageUpload);
+            this.pnlTrainerAdd.Controls.Add(this.buttonBrowse_Click);
+            this.pnlTrainerAdd.Controls.Add(this.combospecialization);
+            this.pnlTrainerAdd.Controls.Add(this.pictureUploadBox);
+            this.pnlTrainerAdd.Controls.Add(this.textDate);
+            this.pnlTrainerAdd.Controls.Add(this.textContact);
+            this.pnlTrainerAdd.Controls.Add(this.textEmail);
+            this.pnlTrainerAdd.Controls.Add(this.textFullname);
+            this.pnlTrainerAdd.Controls.Add(this.textUsername);
+            this.pnlTrainerAdd.Controls.Add(this.textId);
+            this.pnlTrainerAdd.Controls.Add(this.tableLayoutPanel1);
+            this.pnlTrainerAdd.Controls.Add(this.label9);
+            this.pnlTrainerAdd.Controls.Add(this.label8);
+            this.pnlTrainerAdd.Controls.Add(this.label7);
+            this.pnlTrainerAdd.Controls.Add(this.label6);
+            this.pnlTrainerAdd.Controls.Add(this.label5);
+            this.pnlTrainerAdd.Controls.Add(this.label4);
+            this.pnlTrainerAdd.Controls.Add(this.label3);
+            this.pnlTrainerAdd.Controls.Add(this.label2);
+            this.pnlTrainerAdd.Controls.Add(this.label1);
+            this.pnlTrainerAdd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlTrainerAdd.Location = new System.Drawing.Point(0, 0);
+            this.pnlTrainerAdd.Name = "pnlTrainerAdd";
+            this.pnlTrainerAdd.Size = new System.Drawing.Size(1482, 873);
+            this.pnlTrainerAdd.TabIndex = 0;
             // 
             // Delete
             // 
@@ -345,12 +345,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1482, 873);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlTrainerAdd);
             this.Name = "Trainers_Add";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trainers_Add";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlTrainerAdd.ResumeLayout(false);
+            this.pnlTrainerAdd.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUploadBox)).EndInit();
             this.ResumeLayout(false);
 
@@ -358,7 +358,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlTrainerAdd;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label9;

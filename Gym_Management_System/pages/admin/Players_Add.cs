@@ -24,6 +24,11 @@ namespace Gym_Management_System.pages.admin
 
         }
 
+        public Panel getPlayersAddPanel()
+        {
+            return pnlPlayersAdd;
+        }
+
         private void SetupTableHeaders()
         {
 

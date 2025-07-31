@@ -55,6 +55,24 @@
     <Compile Include="pages\admin\AdminDashboard.Designer.cs">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="pages\admin\AdminMainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\admin\AdminMainMenu.Designer.cs">
+      <DependentUpon>AdminMainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pages\admin\AdminSide.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\admin\AdminSide.Designer.cs">
+      <DependentUpon>AdminSide.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pages\admin\AttendanceManegement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\admin\AttendanceManegement.Designer.cs">
+      <DependentUpon>AttendanceManegement.cs</DependentUpon>
+    </Compile>
     <Compile Include="pages\admin\Players_Add.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +147,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="pages\admin\AdminDashboard.resx">
+      <DependentUpon>AdminDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pages\admin\AdminMainMenu.resx">
+      <DependentUpon>AdminMainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pages\admin\AdminSide.resx">
+      <DependentUpon>AdminSide.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pages\admin\AttendanceManegement.resx">
+      <DependentUpon>AttendanceManegement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="pages\login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
