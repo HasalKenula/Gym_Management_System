@@ -18,9 +18,9 @@ namespace Gym_Management_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Trainers_Add());
+            Application.Run(new Trainers_Add());
             //Application.Run(new Players_Add());
-            Application.Run(new UserSide());
+            //Application.Run(new UserSide());
 
         }
     }
