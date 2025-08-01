@@ -1,6 +1,6 @@
 ﻿namespace Gym_Management_System.pages.admin
 {
-    partial class AdminDashboard
+    partial class AdminSide
     {
         /// <summary>
         /// Required designer variable.
@@ -28,31 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnlAdminDashboard = new System.Windows.Forms.Panel();
+            this.splitContAdmin = new System.Windows.Forms.SplitContainer();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContAdmin)).BeginInit();
+            this.splitContAdmin.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pnlAdminDashboard
+            // splitContAdmin
             // 
-            this.pnlAdminDashboard.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pnlAdminDashboard.Location = new System.Drawing.Point(12, 12);
-            this.pnlAdminDashboard.Name = "pnlAdminDashboard";
-            this.pnlAdminDashboard.Size = new System.Drawing.Size(776, 426);
-            this.pnlAdminDashboard.TabIndex = 0;
+            this.splitContAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContAdmin.Location = new System.Drawing.Point(0, 0);
+            this.splitContAdmin.Name = "splitContAdmin";
+            this.splitContAdmin.Size = new System.Drawing.Size(1272, 534);
+            this.splitContAdmin.SplitterDistance = 281;
+            this.splitContAdmin.TabIndex = 0;
             // 
-            // AdminDashboard
+            // AdminSide
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.pnlAdminDashboard);
-            this.Name = "AdminDashboard";
-            this.Text = "AdminDashboard";
+            this.ClientSize = new System.Drawing.Size(1272, 534);
+            this.Controls.Add(this.splitContAdmin);
+            this.Name = "AdminSide";
+            this.Text = "AdminSide";
+            ((System.ComponentModel.ISupportInitialize)(this.splitContAdmin)).EndInit();
+            this.splitContAdmin.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel pnlAdminDashboard;
+        private System.Windows.Forms.SplitContainer splitContAdmin;
     }
 }

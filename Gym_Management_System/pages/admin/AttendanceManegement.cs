@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace Gym_Management_System.pages.admin
 {
-    public partial class AdminDashboard : Form
+    public partial class AttendanceManegement : Form
     {
-        public AdminDashboard()
+        public AttendanceManegement()
         {
             InitializeComponent();
         }
 
-        public Panel getAdminDashboard()
+        public Panel getAttendaceManagement()
         {
-            return pnlAdminDashboard;
+            return pnlAttendanceManage;
         }
     }
 }

@@ -23,6 +23,11 @@ namespace Gym_Management_System.pages.admin
             LoadTrainerData();
         }
 
+        public Panel getTrainersAddPanel()
+        {
+            return pnlTrainerAdd;
+        }
+
         private void SetupTableHeaders()
         {
             

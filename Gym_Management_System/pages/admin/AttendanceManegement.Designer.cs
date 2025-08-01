@@ -1,6 +1,6 @@
 ﻿namespace Gym_Management_System.pages.admin
 {
-    partial class AdminDashboard
+    partial class AttendanceManegement
     {
         /// <summary>
         /// Required designer variable.
@@ -28,31 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnlAdminDashboard = new System.Windows.Forms.Panel();
+            this.pnlAttendanceManage = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // pnlAdminDashboard
+            // pnlAttendanceManage
             // 
-            this.pnlAdminDashboard.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pnlAdminDashboard.Location = new System.Drawing.Point(12, 12);
-            this.pnlAdminDashboard.Name = "pnlAdminDashboard";
-            this.pnlAdminDashboard.Size = new System.Drawing.Size(776, 426);
-            this.pnlAdminDashboard.TabIndex = 0;
+            this.pnlAttendanceManage.Location = new System.Drawing.Point(-2, -1);
+            this.pnlAttendanceManage.Name = "pnlAttendanceManage";
+            this.pnlAttendanceManage.Size = new System.Drawing.Size(805, 450);
+            this.pnlAttendanceManage.TabIndex = 0;
             // 
-            // AdminDashboard
+            // AttendanceManegement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.pnlAdminDashboard);
-            this.Name = "AdminDashboard";
-            this.Text = "AdminDashboard";
+            this.Controls.Add(this.pnlAttendanceManage);
+            this.Name = "AttendanceManegement";
+            this.Text = "AttendanceManegement";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel pnlAdminDashboard;
+        private System.Windows.Forms.Panel pnlAttendanceManage;
     }
 }
