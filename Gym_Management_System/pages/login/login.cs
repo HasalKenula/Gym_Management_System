@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gym_Management_System
@@ -21,28 +15,19 @@ namespace Gym_Management_System
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            SetRoundedButton(button1, 40);
-            SetRoundedButton(button2, 30);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.BackColor = Color.DodgerBlue;
-            button1.ForeColor = Color.White;
+            SetRoundedButton(btnSignin, 40);
+            SetRoundedButton(btnSignup, 30);
+            btnSignin.FlatStyle = FlatStyle.Flat;
+            btnSignin.FlatAppearance.BorderSize = 0;
+            btnSignin.BackColor = Color.DodgerBlue;
+            btnSignin.ForeColor = Color.White;
 
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.BackColor = Color.DodgerBlue;
-            button2.ForeColor = Color.White;
+            btnSignup.FlatStyle = FlatStyle.Flat;
+            btnSignup.FlatAppearance.BorderSize = 0;
+            btnSignup.BackColor = Color.DodgerBlue;
+            btnSignup.ForeColor = Color.White;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
-        }
 
         private void SetRoundedButton(Button button, int radius)
         {
@@ -56,14 +41,22 @@ namespace Gym_Management_System
             button.Region = new Region(path);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnSignup_Click(object sender, EventArgs e)
         {
-            this.Hide(); 
+            this.Hide();
             using (Register regForm = new Register())
             {
-                regForm.ShowDialog(); 
+                regForm.ShowDialog();
             }
-            this.Show(); 
+            this.Show();
+        }
+
+        private void btnSignin_Click(object sender, EventArgs e)
+        {
+            //login credentials checking here
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
+
         }
     }
 }

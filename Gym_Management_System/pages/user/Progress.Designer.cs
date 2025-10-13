@@ -47,14 +47,14 @@
             this.pnlUserProgress.Controls.Add(this.label1);
             this.pnlUserProgress.Location = new System.Drawing.Point(-1, -3);
             this.pnlUserProgress.Name = "pnlUserProgress";
-            this.pnlUserProgress.Size = new System.Drawing.Size(802, 452);
+            this.pnlUserProgress.Size = new System.Drawing.Size(1482, 873);
             this.pnlUserProgress.TabIndex = 1;
             // 
             // Progress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1482, 873);
             this.Controls.Add(this.pnlUserProgress);
             this.Name = "Progress";
             this.Text = "MyStats";

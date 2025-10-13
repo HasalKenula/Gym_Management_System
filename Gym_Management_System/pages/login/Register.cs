@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Gym_Management_System.services;
 
 namespace Gym_Management_System
 {
@@ -27,10 +29,10 @@ namespace Gym_Management_System
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (textBox1.Text == "Enter your name")
+            if (txtUsername.Text == "Enter your name")
             {
-                textBox1.Text = "";
-                textBox1.ForeColor = Color.Black;
+                txtUsername.Text = "";
+                txtUsername.ForeColor = Color.Black;
             }
         }
 
@@ -49,11 +51,72 @@ namespace Gym_Management_System
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
-            Login login = new Login();  
-            login.Show();                       
-            this.Close();
+            this.Hide();
+            using (Login login = new Login())
+            {
+                login.ShowDialog();
+            }
+            this.Show();
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            //register code here
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
+            string confPassword = txtConfPass.Text;
+            string email = txtEmail.Text;
+            string role = cmbRole.Text;
+
+            if (username == "" ||  password == "" ||  confPassword == "" || email == "" || role == "")
+            {
+                MessageBox.Show("empty");
+            }
+            else
+            {
+                if(email.Contains("@"))
+                {
+                    if (password == confPassword)
+                    {
+                        MessageBox.Show("ok");
+                        SqlConnection connection = DatabaseConnection.Instance.GetConnection();
+                        string query = "INSERT INTO users (username, password, email, role) VALUES (@username, @password, @email, @role);";
+
+                        try
+                        {
+                            using (SqlCommand cmd = new SqlCommand(query, connection))
+                            {
+                                cmd.Parameters.AddWithValue("@username", username);
+                                cmd.Parameters.AddWithValue("@password", password);
+                                cmd.Parameters.AddWithValue("@email", email);
+                                cmd.Parameters.AddWithValue("@role", role);
+
+                                int result = cmd.ExecuteNonQuery();
+                                if(result > 0)
+                                {
+                                    MessageBox.Show("Registered Success");
+                                }
+                            }
+                        }catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Passwords do not match !");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Not valid email");
+                }
+
+
+            }
+
         }
     }
 }
