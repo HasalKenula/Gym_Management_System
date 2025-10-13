@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
+using Gym_Management_System.pages.admin;
+using Gym_Management_System.pages.user;
+using Gym_Management_System.services;
 
 namespace Gym_Management_System
 {
@@ -57,6 +61,66 @@ namespace Gym_Management_System
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
+            string query = "SELECT * FROM users WHERE username = @username AND password = @password;";
+
+            SqlConnection connection = DatabaseConnection.Instance.GetConnection();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@password", password);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        //user found
+                        string dbUsername = reader["username"].ToString();
+                        string dbPassword = reader["password"].ToString();
+                        string dbRole = reader["role"].ToString().Trim();
+                        string dbEmail = reader["email"].ToString();
+
+                        //Console.WriteLine(dbRole);
+                        if (dbPassword == password)
+                        {
+                            MessageBox.Show("Login Success");
+                            //show window based on role
+
+                            if(string.Equals(dbRole, "user", StringComparison.OrdinalIgnoreCase))
+                            {
+                                //MessageBox.Show("User");
+                                UserSide userSide = new UserSide();
+                                userSide.Show();
+                                this.Hide();
+                            }
+                            else if(string.Equals(dbRole, "admin", StringComparison.OrdinalIgnoreCase))
+                            {
+                                //MessageBox.Show("Admin");
+                                AdminSide adminSide = new AdminSide();
+                                adminSide.Show();
+                                this.Hide();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Invalid Password");
+                            txtPassword.Text = "";
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        //user not found
+                        MessageBox.Show("User not found !");
+                    }
+                }
+
+            }catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }
