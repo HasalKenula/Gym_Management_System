@@ -98,6 +98,7 @@ namespace Gym_Management_System
                                 {
                                     MessageBox.Show("Registered Success");
                                 }
+                                connection.Close();
                             }
                         }catch (Exception ex)
                         {

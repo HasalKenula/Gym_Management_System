@@ -62,64 +62,69 @@ namespace Gym_Management_System
             string password = txtPassword.Text;
 
             string query = "SELECT * FROM users WHERE username = @username AND password = @password;";
+            string connString = DatabaseConnection.Instance.GetConnection().ConnectionString;
 
-            SqlConnection connection = DatabaseConnection.Instance.GetConnection();
-
-            try
+            using (SqlConnection connection = new SqlConnection(connString) )
             {
-                using (SqlCommand cmd = new SqlCommand(query, connection))
+                try
                 {
-                    cmd.Parameters.AddWithValue("@username", username);
-                    cmd.Parameters.AddWithValue("@password", password);
-
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    if (reader.Read())
+                    connection.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, connection))
                     {
-                        //user found
-                        string dbUsername = reader["username"].ToString();
-                        string dbPassword = reader["password"].ToString();
-                        string dbRole = reader["role"].ToString().Trim();
-                        string dbEmail = reader["email"].ToString();
+                        cmd.Parameters.AddWithValue("@username", username);
+                        cmd.Parameters.AddWithValue("@password", password);
 
-                        //Console.WriteLine(dbRole);
-                        if (dbPassword == password)
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            MessageBox.Show("Login Success");
-                            //show window based on role
+                            if (reader.Read())
+                            {
+                                //user found
+                                string dbUsername = reader["username"].ToString();
+                                string dbPassword = reader["password"].ToString();
+                                string dbRole = reader["role"].ToString().Trim();
+                                string dbEmail = reader["email"].ToString();
 
-                            if(string.Equals(dbRole, "user", StringComparison.OrdinalIgnoreCase))
-                            {
-                                //MessageBox.Show("User");
-                                UserSide userSide = new UserSide();
-                                userSide.Show();
-                                this.Hide();
+                                //Console.WriteLine(dbRole);
+                                if (dbPassword == password)
+                                {
+                                    MessageBox.Show("Login Success");
+                                    //show window based on role
+
+                                    if (string.Equals(dbRole, "user", StringComparison.OrdinalIgnoreCase))
+                                    {
+                                        //MessageBox.Show("User");
+                                        UserSide userSide = new UserSide();
+                                        userSide.Show();
+                                        this.Hide();
+                                    }
+                                    else if (string.Equals(dbRole, "admin", StringComparison.OrdinalIgnoreCase))
+                                    {
+                                        //MessageBox.Show("Admin");
+                                        AdminSide adminSide = new AdminSide();
+                                        adminSide.Show();
+                                        this.Hide();
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Invalid Password");
+                                    txtPassword.Text = "";
+                                    return;
+                                }
                             }
-                            else if(string.Equals(dbRole, "admin", StringComparison.OrdinalIgnoreCase))
+                            else
                             {
-                                //MessageBox.Show("Admin");
-                                AdminSide adminSide = new AdminSide();
-                                adminSide.Show();
-                                this.Hide();
+                                //user not found
+                                MessageBox.Show("User not found !");
                             }
                         }
-                        else
-                        {
-                            MessageBox.Show("Invalid Password");
-                            txtPassword.Text = "";
-                            return;
-                        }
                     }
-                    else
-                    {
-                        //user not found
-                        MessageBox.Show("User not found !");
-                    }
+
                 }
-
-            }catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                } 
             }
         }
     }
