@@ -33,10 +33,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.btnSignin = new System.Windows.Forms.Button();
+            this.btnSignup = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,7 +61,6 @@
             this.label1.Size = new System.Drawing.Size(279, 41);
             this.label1.TabIndex = 1;
             this.label1.Text = "Ready to Login";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label3
             // 
@@ -83,57 +82,57 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Password";
             // 
-            // textBox1
+            // txtUsername
             // 
-            this.textBox1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox1.Location = new System.Drawing.Point(476, 199);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(275, 22);
-            this.textBox1.TabIndex = 5;
+            this.txtUsername.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtUsername.Location = new System.Drawing.Point(476, 199);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(275, 22);
+            this.txtUsername.TabIndex = 5;
             // 
-            // textBox2
+            // txtPassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(476, 280);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(275, 22);
-            this.textBox2.TabIndex = 6;
+            this.txtPassword.Location = new System.Drawing.Point(476, 280);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(275, 22);
+            this.txtPassword.TabIndex = 6;
             // 
-            // button1
+            // btnSignin
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button1.Location = new System.Drawing.Point(513, 359);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(210, 52);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Sign In";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnSignin.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnSignin.Location = new System.Drawing.Point(513, 359);
+            this.btnSignin.Name = "btnSignin";
+            this.btnSignin.Size = new System.Drawing.Size(210, 52);
+            this.btnSignin.TabIndex = 7;
+            this.btnSignin.Text = "Sign In";
+            this.btnSignin.UseVisualStyleBackColor = false;
+            this.btnSignin.Click += new System.EventHandler(this.btnSignin_Click);
             // 
-            // button2
+            // btnSignup
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button2.Location = new System.Drawing.Point(643, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(142, 40);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Sign Up";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnSignup.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnSignup.Location = new System.Drawing.Point(643, 12);
+            this.btnSignup.Name = "btnSignup";
+            this.btnSignup.Size = new System.Drawing.Size(142, 40);
+            this.btnSignup.TabIndex = 8;
+            this.btnSignup.Text = "Sign Up";
+            this.btnSignup.UseVisualStyleBackColor = false;
+            this.btnSignup.Click += new System.EventHandler(this.btnSignup_Click);
             // 
-            // login
+            // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 483);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnSignup);
+            this.Controls.Add(this.btnSignin);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "login";
+            this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -149,10 +148,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Button btnSignin;
+        private System.Windows.Forms.Button btnSignup;
     }
 }
 

@@ -9,6 +9,7 @@ namespace Gym_Management_System.model
     public class User
     {
         private string id;
+        private string username;
         private string name;
         private int age;
         private double height, weight;
@@ -19,9 +20,10 @@ namespace Gym_Management_System.model
         private string phone;
         private Trainer trainer;
 
-        public User(string id, string name, int age, double height, double weight, string gender, string bloodGrp, DateTime dateOfBirth, string email, string phone, Trainer trainer)
+        public User(string id, string username, string name, int age, double height, double weight, string gender, string bloodGrp, DateTime dateOfBirth, string email, string phone, Trainer trainer)
         {
             this.id = id;
+            this.username = username;
             this.name = name;
             this.age = age;
             this.height = height;
@@ -35,6 +37,7 @@ namespace Gym_Management_System.model
         }
 
         public string Id { get => id; set => id = value; }
+        public string Username { get => username; set => username = value; }
         public string Name { get => name; set => name = value; }
         public int Age { get => age; set => age = value; }
         public double Height { get => height; set => height = value; }

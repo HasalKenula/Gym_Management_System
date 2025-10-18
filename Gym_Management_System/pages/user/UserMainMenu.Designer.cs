@@ -32,6 +32,7 @@
             this.btnUserDashboard = new System.Windows.Forms.Button();
             this.btnUserProgress = new System.Windows.Forms.Button();
             this.btnUserProfile = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.pnlUserMainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,6 +44,7 @@
             this.pnlUserMainMenu.Controls.Add(this.btnUserDashboard);
             this.pnlUserMainMenu.Controls.Add(this.btnUserProgress);
             this.pnlUserMainMenu.Controls.Add(this.btnUserProfile);
+            this.pnlUserMainMenu.Controls.Add(this.btnLogout);
             this.pnlUserMainMenu.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.pnlUserMainMenu.Location = new System.Drawing.Point(-3, -1);
             this.pnlUserMainMenu.Name = "pnlUserMainMenu";
@@ -87,6 +89,18 @@
             this.btnUserProfile.UseVisualStyleBackColor = true;
             this.btnUserProfile.Click += new System.EventHandler(this.btnUserProfile_Click);
             // 
+            // btnLogout
+            // 
+            this.btnLogout.Font = new System.Drawing.Font("Poppins", 10.2F);
+            this.btnLogout.Location = new System.Drawing.Point(43, 307);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(350, 40);
+            this.btnLogout.TabIndex = 3;
+            this.btnLogout.Text = "Log Out";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
             // UserMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -106,5 +120,6 @@
         private System.Windows.Forms.Button btnUserDashboard;
         private System.Windows.Forms.Button btnUserProgress;
         private System.Windows.Forms.Button btnUserProfile;
+        private System.Windows.Forms.Button btnLogout;
     }
 }
