@@ -51,5 +51,10 @@ namespace Gym_Management_System.pages.user
             userSide.getContentPanel().Controls.Add(embedUserProfile);
             embedUserProfile.Dock = DockStyle.Fill;
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
