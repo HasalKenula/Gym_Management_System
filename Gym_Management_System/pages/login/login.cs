@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
+using Gym_Management_System.model;
 using Gym_Management_System.pages.admin;
 using Gym_Management_System.pages.user;
 using Gym_Management_System.services;
@@ -83,6 +84,15 @@ namespace Gym_Management_System
                                 string dbPassword = reader["password"].ToString();
                                 string dbRole = reader["role"].ToString().Trim();
                                 string dbEmail = reader["email"].ToString();
+                                string dbUserId = reader["userid"].ToString();
+                                string dbName = reader["name"].ToString();
+                                string dbAge = reader["age"].ToString();
+                                string dbHeight = reader["height"].ToString();
+                                string dbWeight = reader["weight"].ToString();
+                                string dbContact = reader["contact"].ToString();
+                                string dbGender = reader["gender"].ToString();
+                                string dbBloodGrp = reader["bloodgrp"].ToString();
+                                string dbTrainer = reader["trainer"].ToString();
 
                                 //Console.WriteLine(dbRole);
                                 if (dbPassword == password)
@@ -90,10 +100,25 @@ namespace Gym_Management_System
                                     MessageBox.Show("Login Success");
                                     //show window based on role
 
+                                    var _loggedInUser = new User
+                                    {
+                                        Username = reader["username"].ToString(),
+                                        Email = reader["email"].ToString(),
+                                        Name = dbName,
+                                        Phone = dbContact,
+                                        Trainer = dbTrainer,
+                                        BloodGrp = dbBloodGrp,
+                                        Age = int.Parse(dbAge),
+                                        Height = double.Parse(dbHeight),
+                                        Weight = double.Parse(dbWeight),
+                                        Id = dbUserId,
+                                        Gender = dbGender,
+                                    };
+
                                     if (string.Equals(dbRole, "user", StringComparison.OrdinalIgnoreCase))
                                     {
                                         //MessageBox.Show("User");
-                                        UserSide userSide = new UserSide();
+                                        UserSide userSide = new UserSide(_loggedInUser);
                                         userSide.Show();
                                         this.Hide();
                                     }

@@ -7,14 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Gym_Management_System.model;
 
 namespace Gym_Management_System.pages.user
 {
     public partial class Progress : Form
     {
-        public Progress()
+        private readonly User _currentUser;
+        public Progress(User user)
         {
             InitializeComponent();
+            _currentUser = user;
         }
 
         public Panel getUserProgress() {
