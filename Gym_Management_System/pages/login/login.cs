@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using Gym_Management_System.model;
 using Gym_Management_System.pages.admin;
@@ -94,6 +95,12 @@ namespace Gym_Management_System
                                 string dbBloodGrp = reader["bloodgrp"].ToString();
                                 string dbTrainer = reader["trainer"].ToString();
 
+                                byte[] photoBytes = null;
+                                if (reader["photo"] != DBNull.Value)
+                                {
+                                    photoBytes = (byte[])reader["photo"];
+                                }
+
                                 //Console.WriteLine(dbRole);
                                 if (dbPassword == password)
                                 {
@@ -116,6 +123,7 @@ namespace Gym_Management_System
                                             Weight = double.Parse(dbWeight),
                                             Id = dbUserId,
                                             Gender = dbGender,
+                                            Photo = photoBytes,
                                         };
 
                                         //MessageBox.Show("User");

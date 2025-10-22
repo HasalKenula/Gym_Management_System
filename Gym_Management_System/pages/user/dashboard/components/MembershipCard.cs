@@ -18,11 +18,17 @@ namespace Gym_Management_System.pages.user.dashboard.components
         {
             InitializeComponent();
             _currentUser = user;
+            showData(_currentUser);
         }
 
         public Panel getMembershipCrd()
         {
             return pnlMembershipCrd;
+        }
+
+        public void showData(User user) {
+            lblMemberID.Text = user.Id;
+
         }
     }
 }

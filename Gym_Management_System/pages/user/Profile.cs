@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,16 @@ namespace Gym_Management_System.pages.user
             txtTrainer.Text = _currentUser.Trainer;
             cmbBldGrp.Text = _currentUser.BloodGrp;
             cmbGender.Text = _currentUser.Gender;
+
+            byte[] photoByte = _currentUser.Photo;
+            if (photoByte != null)
+            {
+                using (MemoryStream ms = new MemoryStream(photoByte))
+                {
+                    pbProfilePic.BackgroundImage = Image.FromStream(ms);
+                    pbProfilePic.SizeMode = PictureBoxSizeMode.StretchImage; // optional
+                } 
+            }
         }
 
         public Panel getUserProfile()
@@ -52,6 +63,7 @@ namespace Gym_Management_System.pages.user
             txtTrainer.Enabled = true;
             cmbBldGrp.Enabled = true;
             cmbGender.Enabled = true;
+            btnUpload.Enabled = true;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -69,6 +81,7 @@ namespace Gym_Management_System.pages.user
             txtTrainer.Enabled = false;
             cmbBldGrp.Enabled = false;
             cmbGender.Enabled = false;
+            btnUpload.Enabled = false;
 
 
             string name = txtName.Text;
@@ -81,7 +94,7 @@ namespace Gym_Management_System.pages.user
             string trainer = txtTrainer.Text;
             
 
-            string query = "UPDATE users SET name=@name, contact=@contact, age=@age, weight=@weight, height=@height, bloodgrp=@bloodgrp, gender=@gender, trainer=@trainer WHERE username=@username;";
+            string query = "UPDATE users SET name=@name, contact=@contact, age=@age, weight=@weight, height=@height, bloodgrp=@bloodgrp, gender=@gender, trainer=@trainer, photo=@photo WHERE username=@username;";
 
             string connectionString = DatabaseConnection.Instance.GetConnection().ConnectionString;
 
@@ -89,6 +102,16 @@ namespace Gym_Management_System.pages.user
             {
                 try
                 {
+                    byte[] photoBytes = null;
+                    if (pbProfilePic.BackgroundImage != null)
+                    {
+                        using (MemoryStream ms = new MemoryStream())
+                        {
+                            pbProfilePic.BackgroundImage.Save(ms, pbProfilePic.BackgroundImage.RawFormat);
+                            photoBytes = ms.ToArray();
+                        }
+                    }
+
                     connection.Open();
                     using(SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -101,6 +124,9 @@ namespace Gym_Management_System.pages.user
                         command.Parameters.AddWithValue("@gender", gender);
                         command.Parameters.AddWithValue("@trainer", trainer);
                         command.Parameters.AddWithValue("@username", _currentUser.Username);
+                        SqlParameter photoParam = new SqlParameter("@photo", SqlDbType.VarBinary, -1);
+                        photoParam.Value = (object)photoBytes ?? DBNull.Value;
+                        command.Parameters.Add(photoParam);
 
                         int result = command.ExecuteNonQuery();
                         if (result <= 0)
@@ -112,6 +138,18 @@ namespace Gym_Management_System.pages.user
                 {
                     Console.WriteLine(ex.Message);
                 }
+            }
+        }
+
+        private void btnUpload_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                //textImageUpload.Text = ofd.FileName;
+                pbProfilePic.BackgroundImage = Image.FromFile(ofd.FileName);
             }
         }
     }
