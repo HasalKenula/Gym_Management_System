@@ -17,8 +17,9 @@ namespace Gym_Management_System
         public Register()
         {
             InitializeComponent();
+            CreateTrainerTableIfNotExists();
 
-            
+
 
         }
 
@@ -118,6 +119,48 @@ namespace Gym_Management_System
 
             }
 
+        }
+
+        private void CreateTrainerTableIfNotExists()
+        {
+            DatabaseConnection.Instance.GetConnection();
+
+            string createTableQuery = @"
+                            IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='users' AND xtype='U')
+                            BEGIN
+                                CREATE TABLE players (
+                                    userid INT PRIMARY KEY,
+                                    username VARCHAR(50),
+                                    password VARCHAR(255),
+                                    name VARCHAR(50),
+                                    role VARCHAR(50),
+                                    age int,
+                                    email VARCHAR(100),
+                                    contact VARCHAR(50),
+                                    height decimal(5,2),
+                                    weight decimal(5,2),
+                                    trainer varchar(50),
+                                    bloodgrp varchar(50),
+                                    gender varchar(50),
+                                    photo VARBINARY(MAX)
+                                )
+                            END";
+
+            SqlConnection conn = DatabaseConnection.Instance.GetConnection();
+            {
+                try
+                {
+
+                    using (SqlCommand cmd = new SqlCommand(createTableQuery, conn))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Table creation failed: " + ex.Message);
+                }
+            }
         }
     }
 }
