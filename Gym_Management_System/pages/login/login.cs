@@ -100,23 +100,24 @@ namespace Gym_Management_System
                                     MessageBox.Show("Login Success");
                                     //show window based on role
 
-                                    var _loggedInUser = new User
-                                    {
-                                        Username = reader["username"].ToString(),
-                                        Email = reader["email"].ToString(),
-                                        Name = dbName,
-                                        Phone = dbContact,
-                                        Trainer = dbTrainer,
-                                        BloodGrp = dbBloodGrp,
-                                        Age = int.Parse(dbAge),
-                                        Height = double.Parse(dbHeight),
-                                        Weight = double.Parse(dbWeight),
-                                        Id = dbUserId,
-                                        Gender = dbGender,
-                                    };
 
                                     if (string.Equals(dbRole, "user", StringComparison.OrdinalIgnoreCase))
                                     {
+                                        var _loggedInUser = new User
+                                        {
+                                            Username = reader["username"].ToString(),
+                                            Email = reader["email"].ToString(),
+                                            Name = dbName,
+                                            Phone = dbContact,
+                                            Trainer = dbTrainer,
+                                            BloodGrp = dbBloodGrp,
+                                            Age = int.Parse(dbAge),
+                                            Height = double.Parse(dbHeight),
+                                            Weight = double.Parse(dbWeight),
+                                            Id = dbUserId,
+                                            Gender = dbGender,
+                                        };
+
                                         //MessageBox.Show("User");
                                         UserSide userSide = new UserSide(_loggedInUser);
                                         userSide.Show();

@@ -60,5 +60,10 @@ namespace Gym_Management_System.pages.admin
             adminSide.getAdminContentPanel().Controls.Add(embedAttendaceManage);
             embedAttendaceManage.Dock = DockStyle.Fill;
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            adminSide.Close();
+        }
     }
 }
