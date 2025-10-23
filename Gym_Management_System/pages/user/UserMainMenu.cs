@@ -7,20 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Gym_Management_System.model;
 
 namespace Gym_Management_System.pages.user
 {
     public partial class UserMainMenu : Form
     {
+        private readonly User _currentUser;
         private UserSide userSide;
-        UserDashboard userDashboard = new UserDashboard();
-        Profile userProfile = new Profile();
-        Progress userProgress = new Progress();
+        UserDashboard userDashboard;
+        Profile userProfile;
+        Progress userProgress;
 
-        public UserMainMenu(UserSide userSideInstance)
+        public UserMainMenu(UserSide userSideInstance, User user)
         {
             InitializeComponent();
             userSide = userSideInstance;
+            _currentUser = user;
+
+            userDashboard = new UserDashboard(_currentUser);
+            userProfile = new Profile(_currentUser);
+            userProgress = new Progress(_currentUser);
         }
 
         public Panel getMainMenu()
@@ -54,7 +61,7 @@ namespace Gym_Management_System.pages.user
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            this.Close();
+            userSide.Close();
         }
     }
 }

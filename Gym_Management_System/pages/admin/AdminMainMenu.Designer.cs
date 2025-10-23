@@ -34,6 +34,7 @@
             this.btnMemManage = new System.Windows.Forms.Button();
             this.btnTrainerManage = new System.Windows.Forms.Button();
             this.btnAttendanceManage = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.pnlAdminMenu.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -52,6 +53,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnMemManage);
             this.flowLayoutPanel1.Controls.Add(this.btnTrainerManage);
             this.flowLayoutPanel1.Controls.Add(this.btnAttendanceManage);
+            this.flowLayoutPanel1.Controls.Add(this.btnLogout);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(367, 452);
@@ -97,6 +99,16 @@
             this.btnAttendanceManage.UseVisualStyleBackColor = true;
             this.btnAttendanceManage.Click += new System.EventHandler(this.btnAttendanceManage_Click);
             // 
+            // btnLogout
+            // 
+            this.btnLogout.Location = new System.Drawing.Point(3, 243);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(361, 54);
+            this.btnLogout.TabIndex = 4;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
             // AdminMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -119,5 +131,6 @@
         private System.Windows.Forms.Button btnMemManage;
         private System.Windows.Forms.Button btnTrainerManage;
         private System.Windows.Forms.Button btnAttendanceManage;
+        private System.Windows.Forms.Button btnLogout;
     }
 }
