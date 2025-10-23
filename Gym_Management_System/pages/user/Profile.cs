@@ -31,6 +31,7 @@ namespace Gym_Management_System.pages.user
             txtTrainer.Text = _currentUser.Trainer;
             cmbBldGrp.Text = _currentUser.BloodGrp;
             cmbGender.Text = _currentUser.Gender;
+            txtContactNo.Text = _currentUser.Phone;
 
             byte[] photoByte = _currentUser.Photo;
             if (photoByte != null)

@@ -90,6 +90,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(230, 22);
             this.txtPassword.TabIndex = 7;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtConfPass
             // 
@@ -97,6 +98,7 @@
             this.txtConfPass.Name = "txtConfPass";
             this.txtConfPass.Size = new System.Drawing.Size(230, 22);
             this.txtConfPass.TabIndex = 8;
+            this.txtConfPass.UseSystemPasswordChar = true;
             // 
             // label2
             // 

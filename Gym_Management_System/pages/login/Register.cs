@@ -17,7 +17,7 @@ namespace Gym_Management_System
         public Register()
         {
             InitializeComponent();
-            CreateTrainerTableIfNotExists();
+            CreateUserTableIfNotExists();
 
 
 
@@ -59,7 +59,7 @@ namespace Gym_Management_System
             {
                 login.ShowDialog();
             }
-            this.Show();
+            this.Close();
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -121,15 +121,15 @@ namespace Gym_Management_System
 
         }
 
-        private void CreateTrainerTableIfNotExists()
+        private void CreateUserTableIfNotExists()
         {
             DatabaseConnection.Instance.GetConnection();
 
             string createTableQuery = @"
                             IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='users' AND xtype='U')
                             BEGIN
-                                CREATE TABLE players (
-                                    userid INT PRIMARY KEY,
+                                CREATE TABLE users (
+                                    userid INT IDENTITY(1,1) PRIMARY KEY,
                                     username VARCHAR(50),
                                     password VARCHAR(255),
                                     name VARCHAR(50),
