@@ -18,9 +18,14 @@ namespace Gym_Management_System.model
         private DateTime dateOfBirth;
         private string email;
         private string phone;
-        private Trainer trainer;
+        private String trainer;
+        private byte[] photo;
 
-        public User(string id, string username, string name, int age, double height, double weight, string gender, string bloodGrp, DateTime dateOfBirth, string email, string phone, Trainer trainer)
+        public User()
+        {
+        }
+
+        public User(string id, string username, string name, int age, double height, double weight, string gender, string bloodGrp, DateTime dateOfBirth, string email, string phone, string trainer)
         {
             this.id = id;
             this.username = username;
@@ -47,6 +52,7 @@ namespace Gym_Management_System.model
         public DateTime DateOfBirth { get => dateOfBirth; set => dateOfBirth = value; }
         public string Email { get => email; set => email = value; }
         public string Phone { get => phone; set => phone = value; }
-        public Trainer Trainer { get => trainer; set => trainer = value; }
+        public string Trainer { get => trainer; set => trainer = value; }
+        public byte[] Photo {  get => photo; set => photo = value;}
     }
 }

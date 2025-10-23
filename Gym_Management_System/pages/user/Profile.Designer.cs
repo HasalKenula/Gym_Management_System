@@ -55,6 +55,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnUpload = new System.Windows.Forms.Button();
             this.pnlUserProfile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).BeginInit();
             this.SuspendLayout();
@@ -70,6 +71,7 @@
             // 
             // pnlUserProfile
             // 
+            this.pnlUserProfile.Controls.Add(this.btnUpload);
             this.pnlUserProfile.Controls.Add(this.btnSave);
             this.pnlUserProfile.Controls.Add(this.btnEdit);
             this.pnlUserProfile.Controls.Add(this.cmbBldGrp);
@@ -288,6 +290,7 @@
             // 
             // pbProfilePic
             // 
+            this.pbProfilePic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbProfilePic.Location = new System.Drawing.Point(809, 132);
             this.pbProfilePic.Name = "pbProfilePic";
             this.pbProfilePic.Size = new System.Drawing.Size(234, 227);
@@ -344,6 +347,17 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Name :";
             // 
+            // btnUpload
+            // 
+            this.btnUpload.Enabled = false;
+            this.btnUpload.Location = new System.Drawing.Point(868, 387);
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.Size = new System.Drawing.Size(122, 43);
+            this.btnUpload.TabIndex = 32;
+            this.btnUpload.Text = "Upload";
+            this.btnUpload.UseVisualStyleBackColor = true;
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
+            // 
             // Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -388,5 +402,6 @@
         private System.Windows.Forms.ComboBox cmbGender;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnUpload;
     }
 }

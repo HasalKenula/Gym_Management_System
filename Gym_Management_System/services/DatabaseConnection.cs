@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Gym_Management_System.services
 {
@@ -18,6 +19,7 @@ namespace Gym_Management_System.services
         private DatabaseConnection()
         {
             _connection = new SqlConnection(_connectionString);
+            //CreateUserTableIfNotExists();
         }
 
        
@@ -43,7 +45,49 @@ namespace Gym_Management_System.services
             return _connection;
         }
 
-        
+        private void CreateUserTableIfNotExists()
+        {
+            DatabaseConnection.Instance.GetConnection();
+
+            string createTableQuery = @"
+                            IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='users' AND xtype='U')
+                            BEGIN
+                                CREATE TABLE users (
+                                    userid INT IDENTITY(1,1) PRIMARY KEY,
+                                    username VARCHAR(50),
+                                    password VARCHAR(255),
+                                    email VARCHAR(100),
+                                    role VARCHAR(50),
+                                    name VARCHAR(50),
+                                    age INT,
+                                    contact VARCHAR(50),
+                                    height DECIMAL(5,2),
+                                    weight DECIMAL(5,2),
+                                    gender VARCHAR(50),
+                                    bloodgrp VARCHAR(50),
+                                    trainer VARCHAR(50),
+                                    photo VARBINARY(MAX)
+                                )
+                            END";
+
+            SqlConnection conn = DatabaseConnection.Instance.GetConnection();
+            {
+                try
+                {
+
+                    using (SqlCommand cmd = new SqlCommand(createTableQuery, conn))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Table creation failed: " + ex.Message);
+                }
+            }
+        }
+
+
         public void CloseConnection()
         {
             if (_connection.State == System.Data.ConnectionState.Open)

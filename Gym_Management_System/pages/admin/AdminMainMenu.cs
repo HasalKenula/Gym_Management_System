@@ -72,5 +72,9 @@ namespace Gym_Management_System.pages.admin
         }
 
         
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            adminSide.Close();
+        }
     }
 }
