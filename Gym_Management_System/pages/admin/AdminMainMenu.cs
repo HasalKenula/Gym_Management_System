@@ -17,6 +17,7 @@ namespace Gym_Management_System.pages.admin
         Players_Add playersAdd = new Players_Add();
         Trainers_Add trainersAdd = new Trainers_Add();
         AttendanceManegement attendanceManegement = new AttendanceManegement();
+        WorkoutManegement workoutManegement = new WorkoutManegement();
 
         public AdminMainMenu(AdminSide adminSideInstance)
         {
@@ -61,6 +62,16 @@ namespace Gym_Management_System.pages.admin
             embedAttendaceManage.Dock = DockStyle.Fill;
         }
 
+        private void btnWorkoutManagement_Click(object sender, EventArgs e)
+        {
+            Panel embedWorkoutManage = workoutManegement.getWorkoutManagement();
+            adminSide.getAdminContentPanel().Controls.Clear();
+            adminSide.getAdminContentPanel().Controls.Add(embedWorkoutManage);
+            embedWorkoutManage.Dock = DockStyle.Fill;
+
+        }
+
+        
         private void btnLogout_Click(object sender, EventArgs e)
         {
             adminSide.Close();

@@ -85,6 +85,12 @@
     <Compile Include="pages\admin\Trainers_Add.Designer.cs">
       <DependentUpon>Trainers_Add.cs</DependentUpon>
     </Compile>
+    <Compile Include="pages\admin\WorkoutManegement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\admin\WorkoutManegement.Designer.cs">
+      <DependentUpon>WorkoutManegement.cs</DependentUpon>
+    </Compile>
     <Compile Include="pages\login\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="pages\admin\AttendanceManegement.resx">
       <DependentUpon>AttendanceManegement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pages\admin\WorkoutManegement.resx">
+      <DependentUpon>WorkoutManegement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pages\login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

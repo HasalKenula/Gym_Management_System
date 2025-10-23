@@ -34,6 +34,7 @@
             this.btnMemManage = new System.Windows.Forms.Button();
             this.btnTrainerManage = new System.Windows.Forms.Button();
             this.btnAttendanceManage = new System.Windows.Forms.Button();
+            this.btnWorkoutManagement = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.pnlAdminMenu.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -53,6 +54,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnMemManage);
             this.flowLayoutPanel1.Controls.Add(this.btnTrainerManage);
             this.flowLayoutPanel1.Controls.Add(this.btnAttendanceManage);
+            this.flowLayoutPanel1.Controls.Add(this.btnWorkoutManagement);
             this.flowLayoutPanel1.Controls.Add(this.btnLogout);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -99,6 +101,15 @@
             this.btnAttendanceManage.UseVisualStyleBackColor = true;
             this.btnAttendanceManage.Click += new System.EventHandler(this.btnAttendanceManage_Click);
             // 
+            // btnWorkoutManagement
+            // 
+            this.btnWorkoutManagement.Location = new System.Drawing.Point(3, 243);
+            this.btnWorkoutManagement.Name = "btnWorkoutManagement";
+            this.btnWorkoutManagement.Size = new System.Drawing.Size(361, 54);
+            this.btnWorkoutManagement.TabIndex = 4;
+            this.btnWorkoutManagement.Text = "Workout Management";
+            this.btnWorkoutManagement.UseVisualStyleBackColor = true;
+            this.btnWorkoutManagement.Click += new System.EventHandler(this.btnWorkoutManagement_Click);
             // btnLogout
             // 
             this.btnLogout.Location = new System.Drawing.Point(3, 243);
@@ -131,6 +142,7 @@
         private System.Windows.Forms.Button btnMemManage;
         private System.Windows.Forms.Button btnTrainerManage;
         private System.Windows.Forms.Button btnAttendanceManage;
+        private System.Windows.Forms.Button btnWorkoutManagement;
         private System.Windows.Forms.Button btnLogout;
     }
 }
