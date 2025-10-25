@@ -63,7 +63,6 @@ namespace Gym_Management_System.pages.admin
 
         private void CreateTrainerTableIfNotExists()
         {
-            DatabaseConnection.Instance.GetConnection();
 
             string createTableQuery = @"
                             IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='users' AND xtype='U')
@@ -120,61 +119,68 @@ namespace Gym_Management_System.pages.admin
 
 
                     SqlCommand cmd = new SqlCommand(query, conn);
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-
-                    tableLayoutPanel1.RowCount = 1;
-
-
-                    for (int i = tableLayoutPanel1.Controls.Count - 1; i >= 0; i--)
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        Control c = tableLayoutPanel1.Controls[i];
-
-                        if (tableLayoutPanel1.GetRow(c) != 0)
-                            tableLayoutPanel1.Controls.Remove(c);
-                    }
-
-                    int row = 1;
-
-                    while (reader.Read())
-                    {
-
-                        tableLayoutPanel1.RowCount = row + 1;
-                        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+                        tableLayoutPanel1.RowCount = 1;
 
 
-                        for (int col = 0; col < tableLayoutPanel1.ColumnCount; col++)
+                        for (int i = tableLayoutPanel1.Controls.Count - 1; i >= 0; i--)
                         {
-                            Label lbl = new Label();
-                            lbl.Dock = DockStyle.Fill;
-                            lbl.TextAlign = ContentAlignment.MiddleCenter;
-                            lbl.AutoSize = true;
+                            Control c = tableLayoutPanel1.Controls[i];
 
-                            switch (col)
-                            {
-                                case 0: lbl.Text = reader["userid"].ToString(); break;
-                                case 1: lbl.Text = reader["username"].ToString(); break;
-                                case 2: lbl.Text = reader["name"].ToString(); break;
-                                case 3: lbl.Text = reader["email"].ToString(); break;
-                                case 4: lbl.Text = reader["contact"].ToString(); break;
-
-                                case 5:
-                                    DateTime dt = reader.GetDateTime(reader.GetOrdinal("joindate"));
-                                    lbl.Text = dt.ToShortDateString();
-                                    break;
-                            }
-                            lbl.Tag = row;
-
-
-                            lbl.Click += RowLabel_Click;
-
-                            tableLayoutPanel1.Controls.Add(lbl, col, row);
+                            if (tableLayoutPanel1.GetRow(c) != 0)
+                                tableLayoutPanel1.Controls.Remove(c);
                         }
 
-                        row++;
-                    }
+                        int row = 1;
 
-                    reader.Close();
+                        while (reader.Read())
+                        {
+
+                            tableLayoutPanel1.RowCount = row + 1;
+                            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+
+
+                            for (int col = 0; col < tableLayoutPanel1.ColumnCount; col++)
+                            {
+                                Label lbl = new Label();
+                                lbl.Dock = DockStyle.Fill;
+                                lbl.TextAlign = ContentAlignment.MiddleCenter;
+                                lbl.AutoSize = true;
+
+                                switch (col)
+                                {
+                                    case 0: lbl.Text = reader["userid"].ToString(); break;
+                                    case 1: lbl.Text = reader["username"].ToString(); break;
+                                    case 2: lbl.Text = reader["name"].ToString(); break;
+                                    case 3: lbl.Text = reader["email"].ToString(); break;
+                                    case 4: lbl.Text = reader["contact"].ToString(); break;
+
+                                    case 5:
+                                        if (reader.IsDBNull(reader.GetOrdinal("joindate")))
+                                        {
+                                            lbl.Text = null;
+                                        }
+                                        else
+                                        {
+                                            DateTime dt = reader.GetDateTime(reader.GetOrdinal("joindate"));
+                                            lbl.Text = dt.ToShortDateString();
+                                        }
+                                        break;
+                                }
+                                lbl.Tag = row;
+
+
+                                lbl.Click += RowLabel_Click;
+
+                                tableLayoutPanel1.Controls.Add(lbl, col, row);
+                            }
+
+                            row++;
+                        }
+
+                        reader.Close();
+                    }
                 }
                 catch (Exception ex)
                 {
