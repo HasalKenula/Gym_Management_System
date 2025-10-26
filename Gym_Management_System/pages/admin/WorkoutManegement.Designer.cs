@@ -50,13 +50,13 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblMessage = new System.Windows.Forms.Label();
             this.dgvWorkoutTable = new System.Windows.Forms.DataGridView();
-            this.btnAssignPlan = new System.Windows.Forms.Button();
-            this.btnUpdatePlan = new System.Windows.Forms.Button();
-            this.btnDeletePlan = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAssignPlan = new System.Windows.Forms.Button();
+            this.btnUpdatePlan = new System.Windows.Forms.Button();
+            this.btnDeletePlan = new System.Windows.Forms.Button();
             this.pnlWorkoutManegment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWorkoutTable)).BeginInit();
             this.SuspendLayout();
@@ -81,7 +81,7 @@
             // lblMemberId
             // 
             this.lblMemberId.AutoSize = true;
-            this.lblMemberId.Location = new System.Drawing.Point(30, 27);
+            this.lblMemberId.Location = new System.Drawing.Point(67, 27);
             this.lblMemberId.Name = "lblMemberId";
             this.lblMemberId.Size = new System.Drawing.Size(73, 16);
             this.lblMemberId.TabIndex = 0;
@@ -89,18 +89,21 @@
             // 
             // txtMemberId
             // 
-            this.txtMemberId.Location = new System.Drawing.Point(120, 27);
+            this.txtMemberId.Location = new System.Drawing.Point(162, 27);
             this.txtMemberId.Name = "txtMemberId";
             this.txtMemberId.Size = new System.Drawing.Size(180, 22);
             this.txtMemberId.TabIndex = 1;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(320, 25);
+            this.btnSearch.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnSearch.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSearch.Location = new System.Drawing.Point(443, 25);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(90, 27);
+            this.btnSearch.Size = new System.Drawing.Size(121, 37);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // lblMessage
@@ -130,33 +133,6 @@
             this.dgvWorkoutTable.TabIndex = 4;
             this.dgvWorkoutTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWorkoutTable_CellContentClick);
             // 
-            // btnAssignPlan
-            // 
-            this.btnAssignPlan.Location = new System.Drawing.Point(33, 423);
-            this.btnAssignPlan.Name = "btnAssignPlan";
-            this.btnAssignPlan.Size = new System.Drawing.Size(110, 30);
-            this.btnAssignPlan.TabIndex = 5;
-            this.btnAssignPlan.Text = "Assign Plan";
-            this.btnAssignPlan.Click += new System.EventHandler(this.btnAssignPlan_Click);
-            // 
-            // btnUpdatePlan
-            // 
-            this.btnUpdatePlan.Location = new System.Drawing.Point(164, 423);
-            this.btnUpdatePlan.Name = "btnUpdatePlan";
-            this.btnUpdatePlan.Size = new System.Drawing.Size(110, 30);
-            this.btnUpdatePlan.TabIndex = 6;
-            this.btnUpdatePlan.Text = "Update Plan";
-            this.btnUpdatePlan.Click += new System.EventHandler(this.btnUpdatePlan_Click);
-            // 
-            // btnDeletePlan
-            // 
-            this.btnDeletePlan.Location = new System.Drawing.Point(300, 423);
-            this.btnDeletePlan.Name = "btnDeletePlan";
-            this.btnDeletePlan.Size = new System.Drawing.Size(110, 30);
-            this.btnDeletePlan.TabIndex = 7;
-            this.btnDeletePlan.Text = "Delete Plan";
-            this.btnDeletePlan.Click += new System.EventHandler(this.btnDeletePlan_Click);
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.HeaderText = "Day";
@@ -184,6 +160,42 @@
             this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.Width = 125;
+            // 
+            // btnAssignPlan
+            // 
+            this.btnAssignPlan.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnAssignPlan.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAssignPlan.Location = new System.Drawing.Point(29, 409);
+            this.btnAssignPlan.Name = "btnAssignPlan";
+            this.btnAssignPlan.Size = new System.Drawing.Size(121, 37);
+            this.btnAssignPlan.TabIndex = 5;
+            this.btnAssignPlan.Text = "Assign Plan";
+            this.btnAssignPlan.UseVisualStyleBackColor = false;
+            this.btnAssignPlan.Click += new System.EventHandler(this.btnAssignPlan_Click);
+            // 
+            // btnUpdatePlan
+            // 
+            this.btnUpdatePlan.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnUpdatePlan.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnUpdatePlan.Location = new System.Drawing.Point(179, 409);
+            this.btnUpdatePlan.Name = "btnUpdatePlan";
+            this.btnUpdatePlan.Size = new System.Drawing.Size(121, 37);
+            this.btnUpdatePlan.TabIndex = 6;
+            this.btnUpdatePlan.Text = "Update Plan";
+            this.btnUpdatePlan.UseVisualStyleBackColor = false;
+            this.btnUpdatePlan.Click += new System.EventHandler(this.btnUpdatePlan_Click);
+            // 
+            // btnDeletePlan
+            // 
+            this.btnDeletePlan.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnDeletePlan.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDeletePlan.Location = new System.Drawing.Point(336, 409);
+            this.btnDeletePlan.Name = "btnDeletePlan";
+            this.btnDeletePlan.Size = new System.Drawing.Size(121, 37);
+            this.btnDeletePlan.TabIndex = 7;
+            this.btnDeletePlan.Text = "Delete Plan";
+            this.btnDeletePlan.UseVisualStyleBackColor = false;
+            this.btnDeletePlan.Click += new System.EventHandler(this.btnDeletePlan_Click);
             // 
             // WorkoutManegement
             // 
