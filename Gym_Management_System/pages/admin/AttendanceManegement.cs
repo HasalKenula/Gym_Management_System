@@ -21,5 +21,10 @@ namespace Gym_Management_System.pages.admin
         {
             return pnlAttendanceManage;
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
