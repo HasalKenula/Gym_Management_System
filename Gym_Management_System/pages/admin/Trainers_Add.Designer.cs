@@ -225,6 +225,7 @@
             this.textId.Name = "textId";
             this.textId.Size = new System.Drawing.Size(274, 38);
             this.textId.TabIndex = 10;
+            this.textId.TextChanged += new System.EventHandler(this.textId_TextChanged);
             // 
             // tableLayoutPanel1
             // 
