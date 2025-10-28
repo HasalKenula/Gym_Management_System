@@ -56,7 +56,7 @@
             // 
             // pnlPlayersAdd
             // 
-            this.pnlPlayersAdd.BackColor = System.Drawing.Color.MidnightBlue;
+            this.pnlPlayersAdd.BackColor = System.Drawing.SystemColors.Control;
             this.pnlPlayersAdd.Controls.Add(this.buttonBrowse_Click);
             this.pnlPlayersAdd.Controls.Add(this.tableLayoutPanel1);
             this.pnlPlayersAdd.Controls.Add(this.Delete);
@@ -87,7 +87,7 @@
             // 
             // buttonBrowse_Click
             // 
-            this.buttonBrowse_Click.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.buttonBrowse_Click.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonBrowse_Click.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonBrowse_Click.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.buttonBrowse_Click.Location = new System.Drawing.Point(916, 262);
@@ -115,7 +115,7 @@
             // 
             // Delete
             // 
-            this.Delete.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.Delete.BackColor = System.Drawing.SystemColors.Highlight;
             this.Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Delete.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.Delete.Location = new System.Drawing.Point(447, 434);
@@ -128,7 +128,7 @@
             // 
             // Update
             // 
-            this.Update.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.Update.BackColor = System.Drawing.SystemColors.Highlight;
             this.Update.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Update.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.Update.Location = new System.Drawing.Point(231, 434);
@@ -141,7 +141,7 @@
             // 
             // submit
             // 
-            this.submit.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.submit.BackColor = System.Drawing.SystemColors.Highlight;
             this.submit.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.submit.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.submit.Location = new System.Drawing.Point(18, 434);
@@ -165,7 +165,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label8.Location = new System.Drawing.Point(914, 180);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(194, 32);
@@ -176,7 +176,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label7.Location = new System.Drawing.Point(927, 114);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(143, 32);
@@ -187,7 +187,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label6.Location = new System.Drawing.Point(12, 368);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(233, 32);
@@ -198,7 +198,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label5.Location = new System.Drawing.Point(12, 307);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(91, 32);
@@ -209,7 +209,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label4.Location = new System.Drawing.Point(12, 245);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(152, 32);
@@ -274,7 +274,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label3.Location = new System.Drawing.Point(12, 180);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(164, 32);
@@ -294,7 +294,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label2.Location = new System.Drawing.Point(12, 120);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(138, 32);
@@ -305,7 +305,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label1.Location = new System.Drawing.Point(506, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(351, 54);

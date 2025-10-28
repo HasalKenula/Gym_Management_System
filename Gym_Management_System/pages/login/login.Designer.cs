@@ -101,6 +101,8 @@
             // btnSignin
             // 
             this.btnSignin.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnSignin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSignin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnSignin.Location = new System.Drawing.Point(513, 359);
             this.btnSignin.Name = "btnSignin";
             this.btnSignin.Size = new System.Drawing.Size(210, 52);
@@ -112,6 +114,8 @@
             // btnSignup
             // 
             this.btnSignup.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnSignup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSignup.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnSignup.Location = new System.Drawing.Point(643, 12);
             this.btnSignup.Name = "btnSignup";
             this.btnSignup.Size = new System.Drawing.Size(142, 40);
