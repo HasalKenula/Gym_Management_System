@@ -451,5 +451,10 @@ namespace Gym_Management_System.pages.admin
                 }
             }
         }
+
+        private void textId_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

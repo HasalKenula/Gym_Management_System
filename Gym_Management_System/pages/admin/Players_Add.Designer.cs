@@ -83,6 +83,7 @@
             this.pnlPlayersAdd.Name = "pnlPlayersAdd";
             this.pnlPlayersAdd.Size = new System.Drawing.Size(1482, 873);
             this.pnlPlayersAdd.TabIndex = 0;
+            this.pnlPlayersAdd.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlPlayersAdd_Paint);
             // 
             // buttonBrowse_Click
             // 

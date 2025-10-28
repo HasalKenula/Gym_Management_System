@@ -444,12 +444,9 @@ namespace Gym_Management_System.pages.admin
             }
         }
 
+        private void pnlPlayersAdd_Paint(object sender, PaintEventArgs e)
+        {
 
-
-
-
-
-       
-
+        }
     }
 }
