@@ -97,6 +97,12 @@
     <Compile Include="pages\login\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="pages\user\dashboard\components\Announcements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\user\dashboard\components\Announcements.Designer.cs">
+      <DependentUpon>Announcements.cs</DependentUpon>
+    </Compile>
     <Compile Include="pages\user\dashboard\components\MembershipCard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="pages\login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pages\user\dashboard\components\Announcements.resx">
+      <DependentUpon>Announcements.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pages\user\dashboard\components\MembershipCard.resx">
       <DependentUpon>MembershipCard.cs</DependentUpon>

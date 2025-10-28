@@ -55,16 +55,17 @@
             // 
             // tbleLayoutUserDashboard
             // 
+            this.tbleLayoutUserDashboard.AutoSize = true;
             this.tbleLayoutUserDashboard.ColumnCount = 3;
             this.tbleLayoutUserDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.0493F));
             this.tbleLayoutUserDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.9507F));
-            this.tbleLayoutUserDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 226F));
+            this.tbleLayoutUserDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 227F));
             this.tbleLayoutUserDashboard.Location = new System.Drawing.Point(65, 118);
             this.tbleLayoutUserDashboard.Name = "tbleLayoutUserDashboard";
             this.tbleLayoutUserDashboard.RowCount = 2;
             this.tbleLayoutUserDashboard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.8961F));
             this.tbleLayoutUserDashboard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.1039F));
-            this.tbleLayoutUserDashboard.Size = new System.Drawing.Size(1021, 462);
+            this.tbleLayoutUserDashboard.Size = new System.Drawing.Size(1021, 509);
             this.tbleLayoutUserDashboard.TabIndex = 2;
             // 
             // UserDashboard
