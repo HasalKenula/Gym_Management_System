@@ -167,7 +167,7 @@
             this.pictureUploadBox.Location = new System.Drawing.Point(1184, 310);
             this.pictureUploadBox.Name = "pictureUploadBox";
             this.pictureUploadBox.Size = new System.Drawing.Size(274, 183);
-            this.pictureUploadBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureUploadBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureUploadBox.TabIndex = 17;
             this.pictureUploadBox.TabStop = false;
             this.pictureUploadBox.Click += new System.EventHandler(this.pictureUploadBox_Click);
@@ -233,7 +233,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLayoutPanel1.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.tableLayoutPanel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(18, 508);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;

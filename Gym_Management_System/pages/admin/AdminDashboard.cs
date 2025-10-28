@@ -15,11 +15,21 @@ namespace Gym_Management_System.pages.admin
 {
     public partial class AdminDashboard : Form
     {
+        private Timer dashboardTimer = new Timer();
+
+        private void DashboardTimer_Tick(object sender, EventArgs e)
+        {
+            LoadDashboardChart();
+            LoadTrainerSpecializationChart();
+        }
         public AdminDashboard()
         {
             InitializeComponent();
             LoadDashboardChart();
-
+            LoadTrainerSpecializationChart();
+            dashboardTimer.Interval = 2000; // 10,000 ms = 10 seconds
+            dashboardTimer.Tick += DashboardTimer_Tick;
+            dashboardTimer.Start();
         }
 
         public Panel getAdminDashboard()
@@ -34,7 +44,7 @@ namespace Gym_Management_System.pages.admin
 
         private void chart1_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void AdminDashboard_Load(object sender, EventArgs e)
@@ -42,23 +52,7 @@ namespace Gym_Management_System.pages.admin
             LoadDashboardChart();
         }
 
-        //private void LoadDashboardChart()
-        //{
-        //    int trainerCount = GetTrainerCount();
-        //    int memberCount = GetMemberCount();
 
-        //    chart1.Series.Clear();
-
-        //    Series series = chart1.Series.Add("Gym Stats");
-        //    series.ChartType = SeriesChartType.Column; // or Pie, Bar, etc.
-
-        //    series.Points.AddXY("Trainers", trainerCount);
-        //    series.Points.AddXY("players", memberCount);
-
-        //    series.IsValueShownAsLabel = true;
-
-        //    chart1.Invalidate();
-        //}
 
         private void LoadDashboardChart()
         {
@@ -82,7 +76,7 @@ namespace Gym_Management_System.pages.admin
                 chart1.ChartAreas.Add(chartArea);
 
                 // Add title
-                chart1.Titles.Add("Gym Statistics");
+                chart1.Titles.Add("Trainers and Players amount");
                 chart1.Titles[0].Font = new Font("Arial", 12, FontStyle.Bold);
 
                 // Create series
@@ -109,9 +103,6 @@ namespace Gym_Management_System.pages.admin
                 // Refresh chart
                 chart1.Invalidate();
 
-                // Show data in message box for debugging
-                //MessageBox.Show($"Chart Data:\nTrainers: {trainerCount}\nMembers: {memberCount}",
-                //               "Debug Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -172,6 +163,109 @@ namespace Gym_Management_System.pages.admin
             }
 
             return count;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        private void LoadTrainerSpecializationChart()
+        {
+            try
+            {
+                // Clear previous data
+                chartSpecialization.Series.Clear();
+                chartSpecialization.ChartAreas.Clear();
+                chartSpecialization.Titles.Clear();
+                chartSpecialization.Legends.Clear();
+
+                // Add ChartArea
+                ChartArea chartArea = new ChartArea("SpecializationArea")
+                {
+                    BackColor = Color.Transparent
+                };
+                chartSpecialization.ChartAreas.Add(chartArea);
+
+                // Add Title
+                chartSpecialization.Titles.Add("Trainer Specializations");
+                chartSpecialization.Titles[0].Font = new Font("Arial", 12, FontStyle.Bold);
+
+                // Add Legend
+                Legend legend = new Legend("SpecializationLegend")
+                {
+                    Docking = Docking.Bottom,
+                    Alignment = StringAlignment.Center
+                };
+                chartSpecialization.Legends.Add(legend);
+
+                // Create Series and assign legend name
+                Series series = new Series("Specialization")
+                {
+                    ChartType = SeriesChartType.Pie,
+                    Font = new Font("Arial", 10, FontStyle.Bold),
+                    IsValueShownAsLabel = true,
+                    LabelForeColor = Color.White,
+                    Legend = "SpecializationLegend" // Must match the legend added above
+                };
+
+                // Fetch data from database
+                SqlConnection conn = null;
+                try
+                {
+                    conn = DatabaseConnection.Instance.GetConnection();
+                    string query = "SELECT specialization, COUNT(*) AS count FROM trainers GROUP BY specialization";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string specialization = reader["specialization"].ToString();
+                            int count = Convert.ToInt32(reader["count"]);
+                            series.Points.AddXY(specialization, count);
+                        }
+                    }
+                }
+                finally
+                {
+                    conn?.Close();
+                }
+
+                // Assign colors to points
+                for (int i = 0; i < series.Points.Count; i++)
+                {
+                    var point = series.Points[i];
+                    switch (point.AxisLabel)
+                    {
+                        case "Strength":
+                            point.Color = Color.FromArgb(70, 130, 180); // Steel Blue
+                            break;
+                        case "Cardio":
+                            point.Color = Color.FromArgb(255, 99, 71);  // Tomato
+                            break;
+                        case "Weight Loss":
+                            point.Color = Color.FromArgb(60, 179, 113); // Medium Sea Green
+                            break;
+                        default:
+                            point.Color = Color.Gray;
+                            break;
+                    }
+                }
+
+                // Add series to chart
+                chartSpecialization.Series.Add(series);
+
+                // Refresh chart
+                chartSpecialization.Invalidate();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading specialization chart: {ex.Message}", "Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
