@@ -33,15 +33,15 @@
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlUserProgress = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.pnlUserProgress.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.Snow;
+            this.label1.BackColor = System.Drawing.SystemColors.Control;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(255, 68);
             this.label1.MaximumSize = new System.Drawing.Size(500, 500);
@@ -61,14 +61,6 @@
             this.pnlUserProgress.Size = new System.Drawing.Size(1482, 873);
             this.pnlUserProgress.TabIndex = 1;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(586, 81);
-            this.textBox1.MaximumSize = new System.Drawing.Size(500, 500);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(154, 22);
-            this.textBox1.TabIndex = 1;
-            // 
             // chart1
             // 
             chartArea1.Name = "ChartArea1";
@@ -84,6 +76,14 @@
             this.chart1.Size = new System.Drawing.Size(959, 485);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chart1";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(586, 81);
+            this.textBox1.MaximumSize = new System.Drawing.Size(500, 500);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(154, 22);
+            this.textBox1.TabIndex = 1;
             // 
             // Progress
             // 

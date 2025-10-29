@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.pnlUserMainMenu = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnUserDashboard = new System.Windows.Forms.Button();
             this.btnUserProgress = new System.Windows.Forms.Button();
+            this.btnUserDashboard = new System.Windows.Forms.Button();
             this.btnUserProfile = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.pnlUserMainMenu.SuspendLayout();
@@ -41,8 +41,8 @@
             this.pnlUserMainMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlUserMainMenu.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.pnlUserMainMenu.Controls.Add(this.btnUserProgress);
             this.pnlUserMainMenu.Controls.Add(this.btnUserDashboard);
+            this.pnlUserMainMenu.Controls.Add(this.btnUserProgress);
             this.pnlUserMainMenu.Controls.Add(this.btnUserProfile);
             this.pnlUserMainMenu.Controls.Add(this.btnLogout);
             this.pnlUserMainMenu.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -53,26 +53,12 @@
             this.pnlUserMainMenu.TabIndex = 1;
             this.pnlUserMainMenu.WrapContents = false;
             // 
-            // btnUserDashboard
-            // 
-            this.btnUserDashboard.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnUserDashboard.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUserDashboard.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnUserDashboard.Location = new System.Drawing.Point(43, 171);
-            this.btnUserDashboard.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
-            this.btnUserDashboard.Name = "btnUserDashboard";
-            this.btnUserDashboard.Size = new System.Drawing.Size(350, 40);
-            this.btnUserDashboard.TabIndex = 0;
-            this.btnUserDashboard.Text = "Dashboard";
-            this.btnUserDashboard.UseVisualStyleBackColor = false;
-            this.btnUserDashboard.Click += new System.EventHandler(this.btnUserDashboard_Click);
-            // 
             // btnUserProgress
             // 
             this.btnUserProgress.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnUserProgress.Font = new System.Drawing.Font("Poppins", 10.2F);
             this.btnUserProgress.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnUserProgress.Location = new System.Drawing.Point(43, 103);
+            this.btnUserProgress.Location = new System.Drawing.Point(43, 171);
             this.btnUserProgress.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
             this.btnUserProgress.Name = "btnUserProgress";
             this.btnUserProgress.Size = new System.Drawing.Size(350, 40);
@@ -80,6 +66,20 @@
             this.btnUserProgress.Text = "Progress";
             this.btnUserProgress.UseVisualStyleBackColor = false;
             this.btnUserProgress.Click += new System.EventHandler(this.btnUserProgress_Click);
+            // 
+            // btnUserDashboard
+            // 
+            this.btnUserDashboard.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnUserDashboard.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUserDashboard.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnUserDashboard.Location = new System.Drawing.Point(43, 103);
+            this.btnUserDashboard.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
+            this.btnUserDashboard.Name = "btnUserDashboard";
+            this.btnUserDashboard.Size = new System.Drawing.Size(350, 40);
+            this.btnUserDashboard.TabIndex = 0;
+            this.btnUserDashboard.Text = "Dashboard";
+            this.btnUserDashboard.UseVisualStyleBackColor = false;
+            this.btnUserDashboard.Click += new System.EventHandler(this.btnUserDashboard_Click);
             // 
             // btnUserProfile
             // 
