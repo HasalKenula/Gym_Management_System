@@ -69,19 +69,26 @@ namespace Gym_Management_System.pages.admin
 
         private void CreateTrainerTableIfNotExists()
         {
-            DatabaseConnection.Instance.GetConnection();
 
             string createTableQuery = @"
-                            IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='players' AND xtype='U')
+                            IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='users' AND xtype='U')
                             BEGIN
-                                CREATE TABLE players (
-                                    id INT PRIMARY KEY,
+                                CREATE TABLE users (
+                                    userid INT IDENTITY(1,1) PRIMARY KEY,
                                     username VARCHAR(50),
-                                    fullname VARCHAR(100),
+                                    password VARCHAR(255),
+                                    name VARCHAR(50),
+                                    role VARCHAR(50),
+                                    age int,
                                     email VARCHAR(100),
-                                    contact VARCHAR(20),
-                                    joining_date DATE,
-                                    photo VARBINARY(MAX)
+                                    contact VARCHAR(50),
+                                    height decimal(5,2),
+                                    weight decimal(5,2),
+                                    trainer varchar(50),
+                                    bloodgrp varchar(50),
+                                    gender varchar(50),
+                                    photo VARBINARY(MAX),
+                                    joindate DATE
                                 )
                             END";
 
@@ -109,7 +116,7 @@ namespace Gym_Management_System.pages.admin
         {
 
 
-            string query = "SELECT id, username, fullname, email, contact, joining_date FROM players";
+            string query = "SELECT userid, username, name, email, contact, joindate FROM users";
 
             SqlConnection conn = DatabaseConnection.Instance.GetConnection();
             {
@@ -118,61 +125,68 @@ namespace Gym_Management_System.pages.admin
 
 
                     SqlCommand cmd = new SqlCommand(query, conn);
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-
-                    tableLayoutPanel1.RowCount = 1;
-
-
-                    for (int i = tableLayoutPanel1.Controls.Count - 1; i >= 0; i--)
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        Control c = tableLayoutPanel1.Controls[i];
-
-                        if (tableLayoutPanel1.GetRow(c) != 0)
-                            tableLayoutPanel1.Controls.Remove(c);
-                    }
-
-                    int row = 1;
-
-                    while (reader.Read())
-                    {
-
-                        tableLayoutPanel1.RowCount = row + 1;
-                        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+                        tableLayoutPanel1.RowCount = 1;
 
 
-                        for (int col = 0; col < tableLayoutPanel1.ColumnCount; col++)
+                        for (int i = tableLayoutPanel1.Controls.Count - 1; i >= 0; i--)
                         {
-                            Label lbl = new Label();
-                            lbl.Dock = DockStyle.Fill;
-                            lbl.TextAlign = ContentAlignment.MiddleCenter;
-                            lbl.AutoSize = true;
+                            Control c = tableLayoutPanel1.Controls[i];
 
-                            switch (col)
-                            {
-                                case 0: lbl.Text = reader["id"].ToString(); break;
-                                case 1: lbl.Text = reader["username"].ToString(); break;
-                                case 2: lbl.Text = reader["fullname"].ToString(); break;
-                                case 3: lbl.Text = reader["email"].ToString(); break;
-                                case 4: lbl.Text = reader["contact"].ToString(); break;
-
-                                case 5:
-                                    DateTime dt = reader.GetDateTime(reader.GetOrdinal("joining_date"));
-                                    lbl.Text = dt.ToShortDateString();
-                                    break;
-                            }
-                            lbl.Tag = row;
-
-
-                            lbl.Click += RowLabel_Click;
-
-                            tableLayoutPanel1.Controls.Add(lbl, col, row);
+                            if (tableLayoutPanel1.GetRow(c) != 0)
+                                tableLayoutPanel1.Controls.Remove(c);
                         }
 
-                        row++;
-                    }
+                        int row = 1;
 
-                    reader.Close();
+                        while (reader.Read())
+                        {
+
+                            tableLayoutPanel1.RowCount = row + 1;
+                            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+
+
+                            for (int col = 0; col < tableLayoutPanel1.ColumnCount; col++)
+                            {
+                                Label lbl = new Label();
+                                lbl.Dock = DockStyle.Fill;
+                                lbl.TextAlign = ContentAlignment.MiddleCenter;
+                                lbl.AutoSize = true;
+
+                                switch (col)
+                                {
+                                    case 0: lbl.Text = reader["userid"].ToString(); break;
+                                    case 1: lbl.Text = reader["username"].ToString(); break;
+                                    case 2: lbl.Text = reader["name"].ToString(); break;
+                                    case 3: lbl.Text = reader["email"].ToString(); break;
+                                    case 4: lbl.Text = reader["contact"].ToString(); break;
+
+                                    case 5:
+                                        if (reader.IsDBNull(reader.GetOrdinal("joindate")))
+                                        {
+                                            lbl.Text = null;
+                                        }
+                                        else
+                                        {
+                                            DateTime dt = reader.GetDateTime(reader.GetOrdinal("joindate"));
+                                            lbl.Text = dt.ToShortDateString();
+                                        }
+                                        break;
+                                }
+                                lbl.Tag = row;
+
+
+                                lbl.Click += RowLabel_Click;
+
+                                tableLayoutPanel1.Controls.Add(lbl, col, row);
+                            }
+
+                            row++;
+                        }
+
+                        reader.Close();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -234,7 +248,7 @@ namespace Gym_Management_System.pages.admin
                 SqlConnection conn = DatabaseConnection.Instance.GetConnection();
                 {
 
-                    string query = "SELECT photo FROM players WHERE id = @id";
+                    string query = "SELECT photo FROM users WHERE userid = @id";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@id", int.Parse(id));
@@ -299,18 +313,17 @@ namespace Gym_Management_System.pages.admin
                         }
                     }
 
-                    string query = @"INSERT INTO players 
-                                (id, username, fullname, email, contact, joining_date, photo)
-                                VALUES (@id, @username, @fullname, @email, @contact, @joining_date, @photo)";
+                    string query = @"INSERT INTO users 
+                                ( username, name, email, contact, joindate, photo)
+                                VALUES (@username, @name, @email, @contact, @joindate, @photo)";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@id", int.Parse(textId.Text));
                         cmd.Parameters.AddWithValue("@username", textUsername.Text);
-                        cmd.Parameters.AddWithValue("@fullname", textFullname.Text);
+                        cmd.Parameters.AddWithValue("@name", textFullname.Text);
                         cmd.Parameters.AddWithValue("@email", textEmail.Text);
                         cmd.Parameters.AddWithValue("@contact", textContact.Text);   
-                        cmd.Parameters.AddWithValue("@joining_date", DateTime.Parse(textDate.Text)); // use DateTimePicker ideally
+                        cmd.Parameters.AddWithValue("@joindate", DateTime.Parse(textDate.Text)); // use DateTimePicker ideally
                         SqlParameter photoParam = new SqlParameter("@photo", SqlDbType.VarBinary, -1);
                         photoParam.Value = (object)photoBytes ?? DBNull.Value;
                         cmd.Parameters.Add(photoParam);
@@ -354,23 +367,23 @@ namespace Gym_Management_System.pages.admin
                         }
                     }
 
-                    string query = @"UPDATE players SET 
+                    string query = @"UPDATE users SET 
                                 username = @username,
-                                fullname = @fullname,
+                                name = @name,
                                 email = @email,
                                 contact = @contact,                         
-                                joining_date = @joining_date,
+                                joindate = @joindate,
                                 photo = @photo
-                                WHERE id = @id";
+                                WHERE userid = @id";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@id", int.Parse(textId.Text));
                         cmd.Parameters.AddWithValue("@username", textUsername.Text);
-                        cmd.Parameters.AddWithValue("@fullname", textFullname.Text);
+                        cmd.Parameters.AddWithValue("@name", textFullname.Text);
                         cmd.Parameters.AddWithValue("@email", textEmail.Text);
                         cmd.Parameters.AddWithValue("@contact", textContact.Text);
-                        cmd.Parameters.AddWithValue("@joining_date", DateTime.Parse(textDate.Text)); // ideally use DateTimePicker
+                        cmd.Parameters.AddWithValue("@joindate", DateTime.Parse(textDate.Text)); // ideally use DateTimePicker
                         SqlParameter photoParam = new SqlParameter("@photo", SqlDbType.VarBinary, -1);
                         photoParam.Value = (object)photoBytes ?? DBNull.Value;
                         cmd.Parameters.Add(photoParam);
@@ -414,7 +427,7 @@ namespace Gym_Management_System.pages.admin
                 try
                 {
 
-                    string query = "DELETE FROM players WHERE id = @id";
+                    string query = "DELETE FROM users WHERE userid = @id";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {

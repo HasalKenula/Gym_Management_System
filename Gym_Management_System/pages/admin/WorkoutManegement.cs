@@ -16,7 +16,7 @@ namespace Gym_Management_System.pages.admin
             {
                 SqlConnection conn = DatabaseConnection.Instance.GetConnection();
                 EnsureWorkoutTableExists(conn);
-                MessageBox.Show("Database connection successful.");
+                //MessageBox.Show("Database connection successful.");
             }
             catch (Exception ex)
             {

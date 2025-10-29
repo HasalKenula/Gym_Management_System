@@ -17,6 +17,7 @@ namespace Gym_Management_System.pages.user
         private readonly User _currentUser;
 
         MembershipCard membershipCard;
+        Announcements announcements;
 
         public UserDashboard(User user)
         {
@@ -24,7 +25,9 @@ namespace Gym_Management_System.pages.user
             _currentUser = user;
             lblGreeting.Text = $"Hello, {_currentUser.Username}";
             membershipCard = new MembershipCard(_currentUser);
+            announcements = new Announcements();
             tbleLayoutUserDashboard.Controls.Add(membershipCard.getMembershipCrd(), 0, 0);
+            tbleLayoutUserDashboard.Controls.Add(announcements.getAnnouncementPanel(), 0, 1);
         }
 
         public Panel getUserDashboard() {

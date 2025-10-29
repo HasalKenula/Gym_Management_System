@@ -142,7 +142,8 @@ namespace Gym_Management_System
                                     trainer varchar(50),
                                     bloodgrp varchar(50),
                                     gender varchar(50),
-                                    photo VARBINARY(MAX)
+                                    photo VARBINARY(MAX),
+                                    joindate DATE
                                 )
                             END";
 

@@ -12,7 +12,7 @@ namespace Gym_Management_System.services
     {
         private static DatabaseConnection _instance;
         private static readonly object _lock = new object();
-        private readonly string _connectionString = @"Data Source=DESKTOP-UTSQ2RQ\SQLEXPRESS;Initial Catalog=student;Integrated Security=True;";
+        private readonly string _connectionString = @"Data Source=DESKTOP-8T2OQ4F;Initial Catalog=student;Integrated Security=True;Encrypt=False";
         private SqlConnection _connection;
 
       
