@@ -105,35 +105,35 @@ namespace Gym_Management_System
 
                                 string dbRole = GetValue("role").ToString().Trim();
 
-                                //int age = 0;
-                                //if (GetValue("age") is int dbAgeInt) age = dbAgeInt;
-                                //else int.TryParse(GetValue("age").ToString(), out age);
+                                int age = 0;
+                                if (GetValue("age") is int dbAgeInt) age = dbAgeInt;
+                                else int.TryParse(GetValue("age").ToString(), out age);
 
-                                //double height = 0.0;
-                                //if (GetValue("height") is double dbHeightDouble) height = dbHeightDouble;
-                                //else double.TryParse(GetValue("height").ToString(), out height);
+                                double height = 0.0;
+                                if (GetValue("height") is double dbHeightDouble) height = dbHeightDouble;
+                                else double.TryParse(GetValue("height").ToString(), out height);
 
-                                //double weight = 0.0;
-                                //if (GetValue("weight") is double dbWeightDouble) weight = dbWeightDouble;
-                                //else double.TryParse(GetValue("weight").ToString(), out weight);
+                                double weight = 0.0;
+                                if (GetValue("weight") is double dbWeightDouble) weight = dbWeightDouble;
+                                else double.TryParse(GetValue("weight").ToString(), out weight);
 
-                                //byte[] photoBytes = GetValue("photo") as byte[];
+                                byte[] photoBytes = GetValue("photo") as byte[];
 
 
                                 var _loggedInUser = new User
                                 {
                                     Username = GetValue("username").ToString(),
                                     Email = GetValue("email").ToString(),
-                                    //Name = GetValue("name").ToString(),
-                                    //Phone = GetValue("contact").ToString(),
-                                    //Trainer = GetValue("trainer").ToString(),
-                                    //BloodGrp = GetValue("bloodgrp").ToString(),
-                                    //Gender = GetValue("gender").ToString(),
-                                    //Id = GetValue("userid").ToString(),
-                                    //Age = age,
-                                    //Height = height,
-                                    //Weight = weight,
-                                    //Photo = photoBytes,
+                                    Name = GetValue("name").ToString(),
+                                    Phone = GetValue("contact").ToString(),
+                                    Trainer = GetValue("trainer").ToString(),
+                                    BloodGrp = GetValue("bloodgrp").ToString(),
+                                    Gender = GetValue("gender").ToString(),
+                                    Id = GetValue("userid").ToString(),
+                                    Age = age,
+                                    Height = height,
+                                    Weight = weight,
+                                    Photo = photoBytes,
                                 };
                                 //----------------------------------------------------------------------------------------------
                                 //Console.WriteLine(dbRole);
