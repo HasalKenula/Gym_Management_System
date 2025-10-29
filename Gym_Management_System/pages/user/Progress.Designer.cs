@@ -31,43 +31,21 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.label1 = new System.Windows.Forms.Label();
             this.pnlUserProgress = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.pnlUserProgress.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Snow;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(255, 68);
-            this.label1.MaximumSize = new System.Drawing.Size(500, 500);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(324, 47);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Progress Report of";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
             // pnlUserProgress
             // 
+            this.pnlUserProgress.Controls.Add(this.lblTitle);
             this.pnlUserProgress.Controls.Add(this.chart1);
-            this.pnlUserProgress.Controls.Add(this.textBox1);
-            this.pnlUserProgress.Controls.Add(this.label1);
             this.pnlUserProgress.Location = new System.Drawing.Point(-1, -3);
             this.pnlUserProgress.Name = "pnlUserProgress";
             this.pnlUserProgress.Size = new System.Drawing.Size(1482, 873);
             this.pnlUserProgress.TabIndex = 1;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(586, 81);
-            this.textBox1.MaximumSize = new System.Drawing.Size(500, 500);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(154, 22);
-            this.textBox1.TabIndex = 1;
             // 
             // chart1
             // 
@@ -85,6 +63,15 @@
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chart1";
             // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Location = new System.Drawing.Point(309, 65);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(79, 16);
+            this.lblTitle.TabIndex = 3;
+            this.lblTitle.Text = "Progress of ";
+            // 
             // Progress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -101,10 +88,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlUserProgress;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Label lblTitle;
     }
 }
