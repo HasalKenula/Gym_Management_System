@@ -63,61 +63,74 @@
             // 
             // btnAdminDashboard
             // 
+            this.btnAdminDashboard.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnAdminDashboard.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnAdminDashboard.Location = new System.Drawing.Point(3, 3);
             this.btnAdminDashboard.Name = "btnAdminDashboard";
             this.btnAdminDashboard.Size = new System.Drawing.Size(361, 54);
             this.btnAdminDashboard.TabIndex = 0;
             this.btnAdminDashboard.Text = "Dashboard";
-            this.btnAdminDashboard.UseVisualStyleBackColor = true;
+            this.btnAdminDashboard.UseVisualStyleBackColor = false;
             this.btnAdminDashboard.Click += new System.EventHandler(this.btnAdminDashboard_Click);
             // 
             // btnMemManage
             // 
+            this.btnMemManage.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnMemManage.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnMemManage.Location = new System.Drawing.Point(3, 63);
             this.btnMemManage.Name = "btnMemManage";
             this.btnMemManage.Size = new System.Drawing.Size(361, 54);
             this.btnMemManage.TabIndex = 1;
             this.btnMemManage.Text = "Member Management";
-            this.btnMemManage.UseVisualStyleBackColor = true;
+            this.btnMemManage.UseVisualStyleBackColor = false;
             this.btnMemManage.Click += new System.EventHandler(this.btnMemManage_Click);
             // 
             // btnTrainerManage
             // 
+            this.btnTrainerManage.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnTrainerManage.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnTrainerManage.Location = new System.Drawing.Point(3, 123);
             this.btnTrainerManage.Name = "btnTrainerManage";
             this.btnTrainerManage.Size = new System.Drawing.Size(361, 54);
             this.btnTrainerManage.TabIndex = 2;
             this.btnTrainerManage.Text = "Trainer Management";
-            this.btnTrainerManage.UseVisualStyleBackColor = true;
+            this.btnTrainerManage.UseVisualStyleBackColor = false;
             this.btnTrainerManage.Click += new System.EventHandler(this.btnTrainerManage_Click);
             // 
             // btnAttendanceManage
             // 
+            this.btnAttendanceManage.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnAttendanceManage.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnAttendanceManage.Location = new System.Drawing.Point(3, 183);
             this.btnAttendanceManage.Name = "btnAttendanceManage";
             this.btnAttendanceManage.Size = new System.Drawing.Size(361, 54);
             this.btnAttendanceManage.TabIndex = 3;
             this.btnAttendanceManage.Text = "Attendance Management";
-            this.btnAttendanceManage.UseVisualStyleBackColor = true;
+            this.btnAttendanceManage.UseVisualStyleBackColor = false;
             this.btnAttendanceManage.Click += new System.EventHandler(this.btnAttendanceManage_Click);
             // 
             // btnWorkoutManagement
             // 
+            this.btnWorkoutManagement.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnWorkoutManagement.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnWorkoutManagement.Location = new System.Drawing.Point(3, 243);
             this.btnWorkoutManagement.Name = "btnWorkoutManagement";
             this.btnWorkoutManagement.Size = new System.Drawing.Size(361, 54);
             this.btnWorkoutManagement.TabIndex = 4;
             this.btnWorkoutManagement.Text = "Workout Management";
-            this.btnWorkoutManagement.UseVisualStyleBackColor = true;
+            this.btnWorkoutManagement.UseVisualStyleBackColor = false;
             this.btnWorkoutManagement.Click += new System.EventHandler(this.btnWorkoutManagement_Click);
+            // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(3, 243);
+            this.btnLogout.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnLogout.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLogout.Location = new System.Drawing.Point(3, 303);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(361, 54);
             this.btnLogout.TabIndex = 4;
             this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // AdminMainMenu

@@ -20,7 +20,7 @@ namespace Gym_Management_System.pages.admin
             InitializeComponent();
             CreateTrainerTableIfNotExists();
             SetupTableHeaders();
-            LoadTrainerData();
+            LoadPlayerData();
 
         }
 
@@ -29,24 +29,27 @@ namespace Gym_Management_System.pages.admin
             return pnlPlayersAdd;
         }
 
+        
         private void SetupTableHeaders()
         {
-
             string[] columnNames = { "ID", "Username", "Full Name", "Email", "Contact", "Joining Date" };
 
             tableLayoutPanel1.ColumnCount = columnNames.Length;
             tableLayoutPanel1.RowCount = 1;
-
-
             tableLayoutPanel1.ColumnStyles.Clear();
             tableLayoutPanel1.Controls.Clear();
 
+            tableLayoutPanel1.BackColor = Color.White;
+            tableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
+
+            // 🔹 Fix header height
+            tableLayoutPanel1.RowStyles.Clear();
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F)); // fixed height (35px)
 
             for (int i = 0; i < columnNames.Length; i++)
             {
                 tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f / columnNames.Length));
             }
-
 
             for (int col = 0; col < columnNames.Length; col++)
             {
@@ -55,7 +58,10 @@ namespace Gym_Management_System.pages.admin
                 lbl.Font = new Font("Segoe UI", 10, FontStyle.Bold);
                 lbl.Dock = DockStyle.Fill;
                 lbl.TextAlign = ContentAlignment.MiddleCenter;
-                lbl.BackColor = Color.LightGray;
+                lbl.ForeColor = Color.White;
+                lbl.BackColor = Color.FromArgb(45, 85, 155);
+                lbl.Margin = new Padding(0);
+                lbl.Padding = new Padding(0);
 
                 tableLayoutPanel1.Controls.Add(lbl, col, 0);
             }
@@ -106,7 +112,7 @@ namespace Gym_Management_System.pages.admin
 
       
 
-        private void LoadTrainerData()
+        private void LoadPlayerData()
         {
 
 
@@ -327,7 +333,7 @@ namespace Gym_Management_System.pages.admin
                         if (result > 0)
                         {
                             MessageBox.Show("Player added successfully!");
-                            LoadTrainerData();
+                            LoadPlayerData();
                         }
                         else
                         {
@@ -387,7 +393,7 @@ namespace Gym_Management_System.pages.admin
                         if (result > 0)
                         {
                             MessageBox.Show("Player updated successfully!");
-                            LoadTrainerData();
+                            LoadPlayerData();
                         }
                         else
                         {
@@ -442,7 +448,7 @@ namespace Gym_Management_System.pages.admin
                             pictureUploadBox.Image = null;
                             textImageUpload.Clear();
 
-                            LoadTrainerData(); // Refresh the table layout
+                            LoadPlayerData(); // Refresh the table layout
                         }
                         else
                         {
@@ -457,12 +463,9 @@ namespace Gym_Management_System.pages.admin
             }
         }
 
+        private void pnlPlayersAdd_Paint(object sender, PaintEventArgs e)
+        {
 
-
-
-
-
-       
-
+        }
     }
 }

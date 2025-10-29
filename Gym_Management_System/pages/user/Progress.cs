@@ -23,5 +23,10 @@ namespace Gym_Management_System.pages.user
         public Panel getUserProgress() {
             return pnlUserProgress;
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
