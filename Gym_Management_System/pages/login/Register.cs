@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Gym_Management_System.services;
+using BCrypt.Net;
+
 
 namespace Gym_Management_System
 {
@@ -81,16 +83,17 @@ namespace Gym_Management_System
                 {
                     if (password == confPassword)
                     {
+                        string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
                         MessageBox.Show("ok");
                         SqlConnection connection = DatabaseConnection.Instance.GetConnection();
-                        string query = "INSERT INTO users (username, password, email, role) VALUES (@username, @password, @email, @role);";
+                        string query = "INSERT INTO users (username, password, email, role) VALUES (@username, @hashedPassword, @email, @role);";
 
                         try
                         {
                             using (SqlCommand cmd = new SqlCommand(query, connection))
                             {
                                 cmd.Parameters.AddWithValue("@username", username);
-                                cmd.Parameters.AddWithValue("@password", password);
+                                cmd.Parameters.AddWithValue("@hashedPassword", hashedPassword);
                                 cmd.Parameters.AddWithValue("@email", email);
                                 cmd.Parameters.AddWithValue("@role", role);
 
