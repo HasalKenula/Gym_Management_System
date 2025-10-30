@@ -12,7 +12,7 @@ namespace Gym_Management_System.pages.admin
         {
             InitializeComponent();
 
-        try
+            try
             {
                 SqlConnection conn = DatabaseConnection.Instance.GetConnection();
                 EnsureWorkoutTableExists(conn);
@@ -24,7 +24,7 @@ namespace Gym_Management_System.pages.admin
             }
         }
 
-        // Ensure WeeklyWorkoutPlans table exists
+        //  Ensure WeeklyWorkoutPlans table exists
         private void EnsureWorkoutTableExists(SqlConnection conn)
         {
             string checkTableQuery = @"
@@ -37,7 +37,7 @@ namespace Gym_Management_System.pages.admin
                     Workout NVARCHAR(255),
                     Reps NVARCHAR(50),
                     TrainerName NVARCHAR(100),
-                    CONSTRAINT FK_Player_Workout FOREIGN KEY (PlayerID) REFERENCES players(id) ON DELETE CASCADE
+                    CONSTRAINT FK_Player_Workout FOREIGN KEY (PlayerID) REFERENCES users(userid) ON DELETE CASCADE
                 )
             END";
 
@@ -61,20 +61,21 @@ namespace Gym_Management_System.pages.admin
 
             if (!IsPlayerExists(playerId))
             {
-                MessageBox.Show("Player not found.");
+                MessageBox.Show("Player not found or not a valid user.");
                 return;
             }
 
-            lblMessage.Text = "Player found!";
+            lblMessage.Text = "✅ Player found!";
             LoadWorkoutTable(playerId);
         }
 
+        
         private bool IsPlayerExists(string playerId)
         {
             try
             {
                 SqlConnection con = DatabaseConnection.Instance.GetConnection();
-                SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM players WHERE id = @id", con);
+                SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM users WHERE userid = @id",con );
                 cmd.Parameters.AddWithValue("@id", playerId);
                 int count = (int)cmd.ExecuteScalar();
                 return count > 0;
@@ -90,8 +91,7 @@ namespace Gym_Management_System.pages.admin
         {
             dgvWorkoutTable.Rows.Clear();
             SqlConnection con = DatabaseConnection.Instance.GetConnection();
-
-            EnsureWorkoutTableExists(con); // make sure table exists before query
+            EnsureWorkoutTableExists(con);
 
             SqlCommand cmd = new SqlCommand("SELECT * FROM WeeklyWorkoutPlans WHERE PlayerID = @id", con);
             cmd.Parameters.AddWithValue("@id", playerId);
@@ -111,6 +111,7 @@ namespace Gym_Management_System.pages.admin
             }
             else
             {
+                // ⚡ Pre-fill 7 days if no plan found
                 string[] days = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
                 foreach (string day in days)
                     dgvWorkoutTable.Rows.Add(day, "", "", "");
@@ -144,8 +145,8 @@ namespace Gym_Management_System.pages.admin
                     if (row.IsNewRow) continue;
 
                     SqlCommand insertCmd = new SqlCommand(@"
-                    INSERT INTO WeeklyWorkoutPlans (PlayerID, DayOfWeek, Workout, Reps, TrainerName)
-                    VALUES (@p, @d, @w, @r, @t)", con);
+                        INSERT INTO WeeklyWorkoutPlans (PlayerID, DayOfWeek, Workout, Reps, TrainerName)
+                        VALUES (@p, @d, @w, @r, @t)", con);
 
                     insertCmd.Parameters.AddWithValue("@p", playerId);
                     insertCmd.Parameters.AddWithValue("@d", row.Cells[0].Value ?? "");
@@ -187,8 +188,8 @@ namespace Gym_Management_System.pages.admin
                     if (row.IsNewRow) continue;
 
                     SqlCommand insertCmd = new SqlCommand(@"
-                    INSERT INTO WeeklyWorkoutPlans (PlayerID, DayOfWeek, Workout, Reps, TrainerName)
-                    VALUES (@PlayerID, @DayOfWeek, @Workout, @Reps, @TrainerName)", conn);
+                        INSERT INTO WeeklyWorkoutPlans (PlayerID, DayOfWeek, Workout, Reps, TrainerName)
+                        VALUES (@PlayerID, @DayOfWeek, @Workout, @Reps, @TrainerName)", conn);
 
                     insertCmd.Parameters.AddWithValue("@PlayerID", playerId);
                     insertCmd.Parameters.AddWithValue("@DayOfWeek", row.Cells[0].Value ?? "");
@@ -248,6 +249,4 @@ namespace Gym_Management_System.pages.admin
         private void dgvWorkoutTable_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
         private void pnlWorkoutManegment_Paint(object sender, PaintEventArgs e) { }
     }
-
-
 }

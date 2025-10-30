@@ -146,7 +146,7 @@ namespace Gym_Management_System.pages.admin
             try
             {
                 conn = DatabaseConnection.Instance.GetConnection();
-                string query = "SELECT COUNT(*) FROM players";
+                string query = "SELECT COUNT(*) FROM users";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
