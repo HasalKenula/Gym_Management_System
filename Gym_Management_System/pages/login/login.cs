@@ -7,6 +7,8 @@ using Gym_Management_System.model;
 using Gym_Management_System.pages.admin;
 using Gym_Management_System.pages.user;
 using Gym_Management_System.services;
+using Org.BouncyCastle.Crypto.Generators;
+using BCrypt.Net;
 
 namespace Gym_Management_System
 {
@@ -63,7 +65,8 @@ namespace Gym_Management_System
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
-            string query = "SELECT * FROM users WHERE username = @username AND password = @password;";
+            string query = "SELECT * FROM users WHERE username = @username;";
+            //string query = "SELECT * FROM users WHERE username = @username AND password = @password;";
             string connString = DatabaseConnection.Instance.GetConnection().ConnectionString;
 
             using (SqlConnection connection = new SqlConnection(connString) )
@@ -74,7 +77,7 @@ namespace Gym_Management_System
                     using (SqlCommand cmd = new SqlCommand(query, connection))
                     {
                         cmd.Parameters.AddWithValue("@username", username);
-                        cmd.Parameters.AddWithValue("@password", password);
+                        //cmd.Parameters.AddWithValue("@password", password);
 
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
@@ -82,7 +85,7 @@ namespace Gym_Management_System
                             {
                                 //user found
                                 string dbUsername = reader["username"].ToString();
-                                string dbPassword = reader["password"].ToString();
+                                string dbHashedPassword = reader["password"].ToString();
                                 //string dbRole = reader["role"].ToString().Trim();
                                 //string dbEmail = reader["email"].ToString();
                                 //string dbUserId = reader["userid"].ToString();
@@ -137,7 +140,7 @@ namespace Gym_Management_System
                                 };
                                 //----------------------------------------------------------------------------------------------
                                 //Console.WriteLine(dbRole);
-                                if (dbPassword == password)
+                                if (BCrypt.Net.BCrypt.Verify(password, dbHashedPassword))
                                 {
                                     MessageBox.Show("Login Success");
                                     //show window based on role

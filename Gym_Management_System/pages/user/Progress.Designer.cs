@@ -33,11 +33,10 @@
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.pnlUserProgress = new System.Windows.Forms.Panel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.pnlUserProgress.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
-            // 
+            //  
             // pnlUserProgress
             // 
             this.pnlUserProgress.Controls.Add(this.lblTitle);
@@ -62,15 +61,6 @@
             this.chart1.Size = new System.Drawing.Size(959, 485);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chart1";
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(309, 65);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(79, 16);
-            this.lblTitle.TabIndex = 3;
-            this.lblTitle.Text = "Progress of ";
             // 
             // Progress
             // 
